@@ -17,7 +17,6 @@ under review at **IEEE BHI 2026**.
   lazy-loaded iframes:
   - `mjnet_tsne_slice_isles.html`, `mjnet_tsne_patient_isles.html` — mJ-Net deep embeddings
   - `bl_tsne_slice_isles.html`, `bl_tsne_patient_isles.html` — baseline statistical features
-- `static/pdfs/bi-temporal-ctp-dwi.pdf` — the submitted manuscript.
 - `static/css/`, `static/js/` — Bulma + Font Awesome assets from the
   [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template).
 
