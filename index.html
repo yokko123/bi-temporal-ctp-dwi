@@ -3,520 +3,594 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
-  <meta name="robots" content="index, follow">
+  <meta name="title" content="Bi-temporal Image-driven Acute Stroke Evolution Analysis">
+  <meta name="description" content="A bi-temporal tissue phenotyping framework linking admission CTP signatures to follow-up DWI-defined tissue outcome via six outcome-aware ROI classes, using statistical, radiomic, and deep CNN features.">
+  <meta name="keywords" content="acute ischemic stroke, CT perfusion, CTP, diffusion MRI, DWI, radiomics, GLCM, CNN embeddings, mJ-Net, nnU-Net, tissue phenotyping, penumbra, ischemic core, ISLES24, medical imaging">
+  <meta name="author" content="Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
+
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="og:site_name" content="University of Stavanger">
+  <meta property="og:title" content="Bi-temporal Image-driven Acute Stroke Evolution Analysis">
+  <meta property="og:description" content="Linking admission CTP signatures to follow-up DWI tissue outcome through bi-temporal tissue phenotyping.">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="citation_title" content="Bi-temporal Image-driven Acute Stroke Evolution Analysis">
+  <meta name="citation_author" content="Rahman, Md Sazidur">
+  <meta name="citation_author" content="Engan, Kjersti">
+  <meta name="citation_author" content="Kurz, Kathinka Dæhli">
+  <meta name="citation_author" content="Khanmohammadi, Mahdieh">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="IEEE International Conference on Biomedical and Health Informatics (BHI)">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
+  <meta name="theme-color" content="#0d9488">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>Bi-temporal Image-driven Acute Stroke Evolution Analysis</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>Bi-temporal CTP-DWI</title>
-  
-  <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
-    ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#0f1a2e; --ink:#1f2937; --muted:#6b7280;
+      --teal:#0d9488; --teal-d:#0f766e; --accent:#2563eb;
+      /* ROI fate colors */
+      --c-clb:#2e8b6f;       /* contralateral healthy -> healthy */
+      --c-core-b:#1f6f54;    /* core -> salvaged */
+      --c-pen-b:#8fd18c;     /* penumbra -> salvaged */
+      --c-core-fi:#8c1d1d;   /* core -> infarct */
+      --c-pen-fi:#e8743b;    /* penumbra -> infarct */
+      --c-nhb-fi:#d62728;    /* non-hypoperfused -> infarct */
+      /* effect-size shades */
+      --sh-negl:#f4f6f8; --sh-small:#dcede4; --sh-med:#aedcc0; --sh-large:#6ec99a;
+      --sh-rneg:#fbeaea; --sh-rsmall:#f3cccc;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1f2937;line-height:1.65;background:#fff;}
+    .title,.subtitle{font-family:'Inter',sans-serif;}
+    a{color:var(--teal-d);} a:hover{color:var(--teal);}
+
+    /* HERO */
+    .hero-head-wrap{background:linear-gradient(160deg,#0b1220 0%,#0f2a33 55%,#0d4a44 100%);color:#fff;padding:4.5rem 1.25rem 3rem;}
+    .hero-head-wrap .publication-title{color:#fff;font-weight:800;letter-spacing:-.02em;line-height:1.12;font-size:2.55rem;max-width:980px;margin:0 auto 1.25rem;}
+    .venue-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#e6fffb;font-weight:600;font-size:.85rem;padding:.35rem .9rem;border-radius:999px;margin-bottom:1.4rem;letter-spacing:.04em;}
+    .authors{font-size:1.12rem;color:#dbeee9;margin-bottom:.4rem;font-weight:500;}
+    .authors a{color:#fff;border-bottom:1px dotted rgba(255,255,255,.5);}
+    .affil{color:#a9cfc8;font-size:.97rem;margin-bottom:.2rem;}
+    .eql{color:#86b8b0;font-size:.85rem;}
+    .links{margin-top:1.7rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;}
+    .btn-link{display:inline-flex;align-items:center;gap:.5rem;background:#0f1a2e;color:#fff;border:1px solid rgba(255,255,255,.18);padding:.6rem 1.15rem;border-radius:999px;font-weight:600;font-size:.95rem;transition:.18s;}
+    .btn-link:hover{background:#fff;color:#0b1220;transform:translateY(-2px);}
+    .btn-link.disabled{opacity:.5;cursor:not-allowed;}
+    .private-note{margin-top:1.4rem;font-size:.82rem;color:#9fc3bc;}
+
+    /* SECTION */
+    section.block-sec{padding:3.4rem 1.25rem;}
+    .container-narrow{max-width:980px;margin:0 auto;}
+    .container-wide{max-width:1180px;margin:0 auto;}
+    .sec-title{font-size:1.9rem;font-weight:800;color:#0f172a;letter-spacing:-.01em;margin-bottom:.4rem;text-align:center;}
+    .sec-kicker{text-align:center;color:var(--teal-d);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;margin-bottom:.4rem;}
+    .sec-sub{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 2.2rem;}
+    .alt-bg{background:#f6f9fb;}
+
+    .abstract-card{background:#fff;border:1px solid #e6ecf1;border-radius:16px;padding:2rem 2.2rem;box-shadow:0 8px 30px rgba(15,40,60,.05);}
+    .abstract-card p{text-align:justify;color:#374151;font-size:1.02rem;}
+
+    /* highlight cards */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;}
+    .card-hl{background:#fff;border:1px solid #e6ecf1;border-radius:14px;padding:1.4rem;transition:.18s;}
+    .card-hl:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,40,60,.08);}
+    .card-hl .ic{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--teal),var(--teal-d));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.9rem;}
+    .card-hl h4{font-weight:700;color:#0f172a;margin-bottom:.4rem;font-size:1.06rem;}
+    .card-hl p{color:#5b6675;font-size:.93rem;margin:0;}
+    .stat-num{font-size:1.7rem;font-weight:800;color:var(--teal-d);}
+
+    /* figures */
+    figure.fig{margin:0 0 1rem;background:#fff;border:1px solid #e6ecf1;border-radius:14px;padding:1.1rem;box-shadow:0 6px 22px rgba(15,40,60,.05);}
+    figure.fig img{width:100%;height:auto;border-radius:8px;cursor:zoom-in;display:block;}
+    figure.fig figcaption{font-size:.9rem;color:#5b6675;margin-top:.8rem;padding:0 .3rem;}
+    figure.fig figcaption b{color:#0f172a;}
+
+    /* ROI legend */
+    .roi-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.6rem;margin:1.5rem 0;}
+    .roi-item{display:flex;align-items:flex-start;gap:.65rem;background:#fff;border:1px solid #e6ecf1;border-radius:10px;padding:.65rem .8rem;font-size:.9rem;}
+    .roi-dot{flex:none;width:16px;height:16px;border-radius:5px;margin-top:.2rem;}
+    .roi-item b{color:#0f172a;} .roi-item span.sub{color:#6b7280;font-size:.82rem;display:block;}
+
+    /* tables */
+    .tbl-wrap{overflow-x:auto;background:#fff;border:1px solid #e6ecf1;border-radius:14px;padding:.4rem;box-shadow:0 6px 22px rgba(15,40,60,.05);}
+    table.rt{width:100%;border-collapse:collapse;font-size:.86rem;}
+    table.rt th,table.rt td{padding:.5rem .6rem;text-align:center;border-bottom:1px solid #eef2f5;white-space:nowrap;}
+    table.rt thead th{background:#0f1a2e;color:#fff;font-weight:600;position:sticky;top:0;}
+    table.rt thead th.test{font-size:.78rem;}
+    table.rt tbody th{text-align:left;font-weight:600;color:#374151;background:#f8fafb;}
+    table.rt .grp{background:#eef5f3;color:var(--teal-d);font-weight:700;text-align:left;letter-spacing:.04em;font-size:.78rem;text-transform:uppercase;}
+    table.rt .cohort{background:#0d4a44;color:#fff;font-weight:700;text-align:left;letter-spacing:.05em;}
+    .sig{font-weight:700;} .sig.y{color:#15803d;} .sig.n{color:#b91c1c;}
+    td.negl{background:var(--sh-negl);} td.small{background:var(--sh-small);} td.med{background:var(--sh-med);} td.large{background:var(--sh-large);}
+    td.rneg{background:var(--sh-rneg);} td.rsmall{background:var(--sh-rsmall);}
+    td.bold{font-weight:800;color:#0b3d36;}
+    .tbl-cap{font-size:.88rem;color:#5b6675;margin:.7rem .2rem 0;}
+    .tbl-cap b{color:#0f172a;}
+    .legend-inline{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:1rem 0 .2rem;font-size:.82rem;color:#5b6675;}
+    .legend-inline .chip{display:inline-flex;align-items:center;gap:.4rem;}
+    .legend-inline .sw{width:26px;height:14px;border-radius:3px;border:1px solid #d7dee4;}
+
+    /* test pills */
+    .tests{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-bottom:2rem;}
+    .test-card{border:1px solid #e6ecf1;border-radius:12px;padding:1.1rem 1.2rem;background:#fff;}
+    .test-card .tnum{display:inline-block;background:var(--teal);color:#fff;font-weight:700;font-size:.74rem;padding:.18rem .6rem;border-radius:999px;margin-bottom:.55rem;letter-spacing:.05em;}
+    .test-card h5{font-weight:700;color:#0f172a;margin-bottom:.3rem;font-size:.98rem;}
+    .test-card code{background:#eef5f3;color:#0f766e;padding:.05rem .35rem;border-radius:5px;font-size:.82rem;}
+    .test-card p{color:#5b6675;font-size:.88rem;margin:.45rem 0 0;}
+
+    /* interactive tabs */
+    .tabs-bar{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:1.2rem;}
+    .tab-btn{border:1px solid #cdd9e0;background:#fff;color:#334155;padding:.55rem 1.05rem;border-radius:999px;font-weight:600;font-size:.9rem;cursor:pointer;transition:.15s;}
+    .tab-btn:hover{border-color:var(--teal);color:var(--teal-d);}
+    .tab-btn.active{background:var(--teal-d);border-color:var(--teal-d);color:#fff;}
+    .iframe-shell{background:#fff;border:1px solid #e6ecf1;border-radius:14px;padding:.5rem;box-shadow:0 6px 22px rgba(15,40,60,.05);}
+    .iframe-shell iframe{width:100%;height:560px;border:0;border-radius:9px;display:block;background:#fff;}
+    .iframe-hint{text-align:center;color:#94a3b8;font-size:.82rem;margin-top:.6rem;}
+    .pane{display:none;} .pane.active{display:block;}
+    .pane h4{font-weight:700;color:#0f172a;margin:0 0 .2rem;font-size:1.05rem;}
+    .pane .desc{color:#5b6675;font-size:.9rem;margin-bottom:.9rem;}
+
+    /* bibtex */
+    .bib-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;}
+    .copy-btn{border:1px solid #cdd9e0;background:#fff;color:#334155;padding:.45rem .9rem;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem;}
+    .copy-btn:hover{border-color:var(--teal);color:var(--teal-d);}
+    pre.bib{background:#0f1a2e;color:#d7e6e3;border-radius:12px;padding:1.3rem 1.4rem;overflow-x:auto;font-size:.85rem;line-height:1.5;}
+
+    footer.ft{background:#0b1220;color:#9fb4b0;padding:2.4rem 1.25rem;text-align:center;font-size:.88rem;}
+    footer.ft a{color:#cdeee8;}
+
+    /* lightbox */
+    #lightbox{display:none;position:fixed;inset:0;background:rgba(7,12,20,.92);z-index:9999;cursor:zoom-out;padding:2rem;}
+    #lightbox.open{display:flex;align-items:center;justify-content:center;}
+    #lightbox img{max-width:96%;max-height:94%;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6);}
+
+    .scroll-top{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--teal-d);color:#fff;border:0;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 8px 22px rgba(13,118,132,.4);z-index:50;}
+    .scroll-top.show{display:flex;}
+
+    @media(max-width:768px){
+      .hero-head-wrap .publication-title{font-size:1.85rem;}
+      .iframe-shell iframe{height:430px;}
+      section.block-sec{padding:2.4rem 1rem;}
+    }
+  </style>
 </head>
 <body>
 
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
 
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
+  <!-- ===================== HERO ===================== -->
+  <header class="hero-head-wrap">
+    <div class="container-narrow has-text-centered">
+      <span class="venue-badge"><i class="fas fa-lock" style="font-size:.7rem;margin-right:.35rem;"></i> Under review · IEEE BHI 2026 · Private preview</span>
+      <h1 class="publication-title">Bi-temporal Image-driven Acute Stroke Evolution Analysis</h1>
+      <p class="authors">
+        Md Sazidur Rahman<sup>*</sup>,
+        Kjersti Engan<sup>*</sup>,
+        Kathinka Dæhli Kurz<sup>*</sup>,
+        Mahdieh Khanmohammadi
+      </p>
+      <p class="affil">University of Stavanger, Norway · Stavanger University Hospital</p>
+      <p class="eql"><sup>*</sup> Equal contribution</p>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
+      <div class="links">
+        <a class="btn-link" href="static/pdfs/bi-temporal-ctp-dwi.pdf" target="_blank" rel="noopener">
+          <i class="fas fa-file-pdf"></i> Paper (PDF)
         </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
+        <a class="btn-link" href="#interactive">
+          <i class="fas fa-braille"></i> Interactive figures
         </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
+        <a class="btn-link" href="#results">
+          <i class="fas fa-table"></i> Results
         </a>
+        <span class="btn-link disabled" title="Code will be released upon publication">
+          <i class="fab fa-github"></i> Code (coming soon)
+        </span>
       </div>
+      <p class="private-note"><i class="fas fa-eye-slash"></i> This page is private and unlisted while the paper is under review.</p>
     </div>
-  </div>
+  </header>
 
-  <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Beyond Core and Penumbra: Bi-Temporal Image-Driven Tissue Evolution Analysis from CTP and DWI</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Md Sazidur Rahman</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Kjersti Engan</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Kathinka Dæhli Kurz</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Mahdieh Khanmohammadi</a>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- ===================== FRAMEWORK / TEASER ===================== -->
+  <section class="block-sec">
+    <div class="container-wide">
+      <p class="sec-kicker">Framework Overview</p>
+      <h2 class="sec-title">From admission CTP to follow-up DWI tissue fate</h2>
+      <p class="sec-sub">Admission CT perfusion (T<sub>1</sub>) is spatially aligned with follow-up diffusion MRI (T<sub>2</sub>) to construct six outcome-aware regions of interest. Admission tissue is then characterized with statistical, radiomic, and deep CNN features.</p>
+      <figure class="fig">
+        <img src="static/images/paper/fig1_framework.png" alt="Framework overview: bi-temporal ROI construction and feature extraction (FE1–FE4)">
+        <figcaption><b>Fig. 1 — Overview of the framework.</b> <b>Top:</b> Bi-temporal ROI construction — CTP at T<sub>1</sub> is preprocessed and registered to NCCT space and intersected with DWI-defined outcome at T<sub>2</sub> to form six ROI classes. <b>Bottom:</b> CTP feature extraction (FE1–FE4): baseline statistics (BL), GLCM radiomics, and mJ-Net / nnU-Net deep embeddings.</figcaption>
+      </figure>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+  <!-- ===================== ABSTRACT ===================== -->
+  <section class="block-sec alt-bg">
+    <div class="container-narrow">
+      <p class="sec-kicker">Abstract</p>
+      <h2 class="sec-title">What the paper shows</h2>
+      <div class="abstract-card" style="margin-top:1.4rem;">
+        <p>Acute ischemic stroke requires rapid treatment decisions that are strongly guided by emergency imaging. Admission computed tomography perfusion (CTP) is commonly used to estimate the ischemic <b>core</b> (irreversibly damaged tissue) and the <b>penumbra</b> (hypoperfused but potentially salvageable tissue), while follow-up diffusion-weighted MRI (DWI) defines the final infarct. Existing imaging approaches focus on core–penumbra segmentation or final-infarct prediction, but offer limited insight into how heterogeneous penumbral tissue evolves after treatment.</p>
+        <p>We propose a <b>bi-temporal tissue phenotyping framework</b> that links admission CTP signatures with follow-up DWI-defined tissue outcome using six outcome-aware ROI classes. Admission signatures are characterized using statistical, radiomic, and deep-learning features from mJ-Net and nnU-Net representations. On a local cohort, salvaged and infarcted penumbra showed consistent feature-space separation (∆̃<sub>cos</sub>&nbsp;=&nbsp;0.146, <i>p</i>&nbsp;&lt;&nbsp;0.05), while core tissue showed minimal separation by subsequent fate. The largest separation was between initially non-hypoperfused tissue that later infarcted and healthy contralateral tissue (∆̃<sub>cos</sub>&nbsp;=&nbsp;0.460, <i>p</i>&nbsp;&lt;&nbsp;0.05). Cross-dataset evaluation on <b>ISLES'24</b> showed similar trends, supporting generalizability. These findings suggest that admission CTP contains outcome-associated tissue information <b>beyond conventional core–penumbra delineation</b>.</p>
       </div>
     </div>
   </section>
-<!--End paper poster -->
 
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
+  <!-- ===================== HIGHLIGHTS ===================== -->
+  <section class="block-sec">
+    <div class="container-wide">
+      <p class="sec-kicker">Key Contributions</p>
+      <h2 class="sec-title">Highlights</h2>
+      <div class="cards" style="margin-top:1.6rem;">
+        <div class="card-hl">
+          <div class="ic"><i class="fas fa-history"></i></div>
+          <h4>Bi-temporal phenotyping</h4>
+          <p>Links admission CTP (T<sub>1</sub>) to follow-up DWI outcome (T<sub>2</sub>) instead of treating ischemic regions as static, homogeneous targets.</p>
+        </div>
+        <div class="card-hl">
+          <div class="ic"><i class="fas fa-shapes"></i></div>
+          <h4>Six outcome-aware ROIs</h4>
+          <p>Tissue is split by both admission label (core / penumbra / brain) and final fate (salvaged / infarcted), revealing fate-driven heterogeneity.</p>
+        </div>
+        <div class="card-hl">
+          <div class="ic"><i class="fas fa-layer-group"></i></div>
+          <h4>Three feature families</h4>
+          <p>Baseline statistics (BL), GLCM radiomics, and deep CNN embeddings (mJ-Net, nnU-Net) give complementary, model-free and model-based views.</p>
+        </div>
+        <div class="card-hl">
+          <div class="ic"><i class="fas fa-database"></i></div>
+          <h4>Cross-dataset validation</h4>
+          <p>The same tissue-fate pattern holds on the public <b>ISLES'24</b> cohort (n&nbsp;=&nbsp;149) despite different centers, protocols, and annotation pipelines.</p>
+        </div>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
 
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+      <div class="cards" style="margin-top:1.1rem;">
+        <div class="card-hl has-text-centered">
+          <div class="stat-num">109&nbsp;/&nbsp;149</div>
+          <p>Local cohort (analysis / scanned)</p>
+        </div>
+        <div class="card-hl has-text-centered">
+          <div class="stat-num">∆̃<sub>cos</sub>&nbsp;0.146</div>
+          <p>Penumbra: salvaged vs. infarcted (mJ-Net, Test&nbsp;1)</p>
+        </div>
+        <div class="card-hl has-text-centered">
+          <div class="stat-num">∆̃<sub>cos</sub>&nbsp;0.460</div>
+          <p>Non-hypoperfused infarct vs. healthy (Test&nbsp;4)</p>
+        </div>
+        <div class="card-hl has-text-centered">
+          <div class="stat-num">6</div>
+          <p>Bi-temporal ROI classes</p>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  <!-- ===================== ROI CLASSES ===================== -->
+  <section class="block-sec alt-bg">
+    <div class="container-wide">
+      <p class="sec-kicker">Method</p>
+      <h2 class="sec-title">The six bi-temporal ROI classes</h2>
+      <p class="sec-sub">Each class is the intersection of an admission tissue label (T<sub>1</sub>) and its final fate on DWI (T<sub>2</sub>). Green tones = tissue that stayed healthy / was salvaged; red–orange tones = tissue that progressed to final infarct.</p>
+      <div class="roi-legend">
+        <div class="roi-item"><span class="roi-dot" style="background:var(--c-clb)"></span><div><b>ROI<sup>b</sup><sub>CLB</sub></b> — Contralateral healthy brain<span class="sub">healthy → remained healthy</span></div></div>
+        <div class="roi-item"><span class="roi-dot" style="background:var(--c-core-b)"></span><div><b>ROI<sup>b</sup><sub>c</sub></b> — Core, salvaged<span class="sub">core → did not infarct</span></div></div>
+        <div class="roi-item"><span class="roi-dot" style="background:var(--c-pen-b)"></span><div><b>ROI<sup>b</sup><sub>p</sub></b> — Penumbra, salvaged<span class="sub">penumbra → recovered</span></div></div>
+        <div class="roi-item"><span class="roi-dot" style="background:var(--c-core-fi)"></span><div><b>ROI<sup>fi</sup><sub>c</sub></b> — Core, infarcted<span class="sub">core → remained infarcted</span></div></div>
+        <div class="roi-item"><span class="roi-dot" style="background:var(--c-pen-fi)"></span><div><b>ROI<sup>fi</sup><sub>p</sub></b> — Penumbra, infarcted<span class="sub">penumbra → progressed to infarct</span></div></div>
+        <div class="roi-item"><span class="roi-dot" style="background:var(--c-nhb-fi)"></span><div><b>ROI<sup>fi</sup><sub>NHB</sub></b> — Non-hypoperfused, infarcted<span class="sub">non-hypoperfused → later infarcted</span></div></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- End of Statcounter Code -->
+  <!-- ===================== RESULTS ===================== -->
+  <section class="block-sec" id="results">
+    <div class="container-wide">
+      <p class="sec-kicker">Experiments &amp; Results</p>
+      <h2 class="sec-title">Four region-pair comparisons</h2>
+      <p class="sec-sub">Each test asks whether admission CTP features at T<sub>1</sub> already carry information about subsequent tissue fate at T<sub>2</sub>.</p>
 
-  </body>
-  </html>
+      <div class="tests">
+        <div class="test-card">
+          <span class="tnum">TEST 1</span>
+          <h5>Penumbra fate</h5>
+          <code>ROI<sup>b</sup><sub>p</sub></code> vs <code>ROI<sup>fi</sup><sub>p</sub></code>
+          <p>Does admission signature distinguish penumbra that recovers from penumbra that progresses to infarct? <b>Most clinically interesting.</b></p>
+        </div>
+        <div class="test-card">
+          <span class="tnum">TEST 2</span>
+          <h5>Core fate</h5>
+          <code>ROI<sup>b</sup><sub>c</sub></code> vs <code>ROI<sup>fi</sup><sub>c</sub></code>
+          <p>Does initially core-labeled tissue retain outcome-related differences? Expected to be weak (advanced injury).</p>
+        </div>
+        <div class="test-card">
+          <span class="tnum">TEST 3</span>
+          <h5>Infarct origin</h5>
+          <code>ROI<sup>fi</sup><sub>NHB</sub></code> vs <code>ROI<sup>fi</sup><sub>p</sub></code>
+          <p>Is infarcting tissue outside the hypoperfused area separable from infarcting penumbra at admission?</p>
+        </div>
+        <div class="test-card">
+          <span class="tnum">TEST 4</span>
+          <h5>Hidden vulnerability</h5>
+          <code>ROI<sup>fi</sup><sub>NHB</sub></code> vs <code>ROI<sup>b</sup><sub>CLB</sub></code>
+          <p>Does non-hypoperfused tissue that later infarcts already differ from healthy contralateral brain?</p>
+        </div>
+      </div>
+
+      <!-- TABLE II -->
+      <h3 class="sec-title" style="font-size:1.35rem;text-align:left;margin-bottom:.3rem;">Table II — Region-pair comparisons across feature families</h3>
+      <p class="tbl-cap" style="margin-bottom:.9rem;">FE1/FE2: Mann–Whitney U (FDR, α&nbsp;=&nbsp;0.05) with Cliff's <i>d</i> effect size. FE3/FE4: median ∆̃<sub>cos</sub> (one-sample Wilcoxon). <span class="sig y">✓</span> significant · <span class="sig n">✕</span> not significant. Cell shade encodes effect-size magnitude.</p>
+      <div class="legend-inline">
+        <span class="chip"><span class="sw" style="background:var(--sh-large)"></span>large</span>
+        <span class="chip"><span class="sw" style="background:var(--sh-med)"></span>medium</span>
+        <span class="chip"><span class="sw" style="background:var(--sh-small)"></span>small</span>
+        <span class="chip"><span class="sw" style="background:var(--sh-negl)"></span>negligible</span>
+        <span class="chip"><span class="sw" style="background:var(--sh-rsmall)"></span>n.s. (small)</span>
+        <span class="chip"><span class="sw" style="background:var(--sh-rneg)"></span>n.s. (negl.)</span>
+      </div>
+      <div class="tbl-wrap">
+        <table class="rt">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th class="test">Test 1<br><small>ROI<sup>b</sup><sub>p</sub> · ROI<sup>fi</sup><sub>p</sub></small></th>
+              <th class="test">Test 2<br><small>ROI<sup>b</sup><sub>c</sub> · ROI<sup>fi</sup><sub>c</sub></small></th>
+              <th class="test">Test 3<br><small>ROI<sup>fi</sup><sub>NHB</sub> · ROI<sup>fi</sup><sub>p</sub></small></th>
+              <th class="test">Test 4<br><small>ROI<sup>fi</sup><sub>NHB</sub> · ROI<sup>b</sup><sub>CLB</sub></small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="cohort" colspan="5">Local cohort (n = 109)</td></tr>
+            <tr><td class="grp" colspan="5">FE1 — Baseline statistics</td></tr>
+            <tr><th>Mean</th><td class="large"><span class="sig y">✓</span> large</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="small"><span class="sig y">✓</span> small</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Std</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Skewness</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Min</th><td class="large"><span class="sig y">✓</span> large</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Max</th><td class="small"><span class="sig y">✓</span> small</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="small"><span class="sig y">✓</span> small</td></tr>
+            <tr><th>Kurtosis</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><td class="grp" colspan="5">FE2 — GLCM radiomics</td></tr>
+            <tr><th>Imc1</th><td class="large"><span class="sig y">✓</span> large</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Imc2</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="small"><span class="sig y">✓</span> small</td><td class="small"><span class="sig y">✓</span> small</td></tr>
+            <tr><th>Correlation</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="small"><span class="sig y">✓</span> small</td><td class="rsmall"><span class="sig n">✕</span> small</td></tr>
+            <tr><th>MCC</th><td class="large"><span class="sig y">✓</span> large</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="small"><span class="sig y">✓</span> small</td><td class="small"><span class="sig y">✓</span> small</td></tr>
+            <tr><th>∆̃<sub>cos</sub> (FE3, mJ-Net)</th><td class="med bold"><span class="sig y">✓</span> 0.146</td><td class="negl bold"><span class="sig y">✓</span> 0.031</td><td class="med bold"><span class="sig y">✓</span> 0.127</td><td class="large bold"><span class="sig y">✓</span> 0.460</td></tr>
+            <tr><th>∆̃<sub>cos</sub> (FE4, nnU-Net)</th><td class="negl bold"><span class="sig y">✓</span> 0.091</td><td class="negl bold"><span class="sig y">✓</span> 0.038</td><td class="negl bold"><span class="sig y">✓</span> 0.090</td><td class="med bold"><span class="sig y">✓</span> 0.193</td></tr>
+
+            <tr><td class="cohort" colspan="5">ISLES'24 cohort (n = 149)</td></tr>
+            <tr><td class="grp" colspan="5">FE1 — Baseline statistics</td></tr>
+            <tr><th>Mean</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Std</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="med"><span class="sig y">✓</span> med.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Skewness</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Min</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Max</th><td class="small"><span class="sig y">✓</span> small</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="small"><span class="sig y">✓</span> small</td><td class="negl"><span class="sig y">✓</span> negl.</td></tr>
+            <tr><th>Kurtosis</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><td class="grp" colspan="5">FE2 — GLCM radiomics</td></tr>
+            <tr><th>Imc1</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
+            <tr><th>Imc2</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="small"><span class="sig y">✓</span> small</td></tr>
+            <tr><th>Correlation</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="small"><span class="sig y">✓</span> small</td></tr>
+            <tr><th>MCC</th><td class="small"><span class="sig y">✓</span> small</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td></tr>
+            <tr><th>∆̃<sub>cos</sub> (FE3, mJ-Net)</th><td class="med bold"><span class="sig y">✓</span> 0.177</td><td class="negl bold"><span class="sig y">✓</span> 0.044</td><td class="med bold"><span class="sig y">✓</span> 0.126</td><td class="large bold"><span class="sig y">✓</span> 0.401</td></tr>
+            <tr><th>∆̃<sub>cos</sub> (FE4, nnU-Net)</th><td class="med bold"><span class="sig y">✓</span> 0.140</td><td class="negl bold"><span class="sig y">✓</span> 0.042</td><td class="negl bold"><span class="sig y">✓</span> 0.094</td><td class="med bold"><span class="sig y">✓</span> 0.115</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-cap"><b>Takeaway.</b> Penumbra (Test 1) and the hidden-vulnerability comparison (Test 4) separate consistently across all feature families and both cohorts, while core fate (Test 2) stays the weakest — consistent with already-advanced ischemic injury at baseline.</p>
+    </div>
+  </section>
+
+  <!-- ===================== STATIC FIGURES ===================== -->
+  <section class="block-sec alt-bg">
+    <div class="container-wide">
+      <p class="sec-kicker">Visual Analysis</p>
+      <h2 class="sec-title">Feature-space structure</h2>
+      <p class="sec-sub">t-SNE projections and bubble plots qualitatively confirm the tissue-fate organization seen in the statistics.</p>
+
+      <div class="columns is-variable is-5">
+        <div class="column is-half">
+          <figure class="fig">
+            <img src="static/images/paper/fig2_tsne_all.png" alt="t-SNE projections of FE1–FE4 across all six ROI classes (local cohort)">
+            <figcaption><b>Fig. 2 — t-SNE of FE1–FE4</b> across all six bi-temporal ROI classes (local cohort). Colors denote tissue fate, markers denote ROI classes. CNN embeddings (bottom row) show clearer class organization than handcrafted features.</figcaption>
+          </figure>
+        </div>
+        <div class="column is-half">
+          <figure class="fig">
+            <img src="static/images/paper/fig4_tsne_mjnet.png" alt="t-SNE of mJ-Net embeddings for Tests 1–4 (local cohort)">
+            <figcaption><b>Fig. 4 — mJ-Net (FE3) t-SNE per region-pair test.</b> Test 1 (penumbra fate), Test 2 (core fate), Test 3 (infarct origin), Test 4 (hidden vulnerability). Test 4 shows the strongest visual separation.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <figure class="fig">
+        <img src="static/images/paper/fig3_bubble.png" alt="Bubble plots of median BL and GLCM features per ROI class for LVO and non-LVO subgroups">
+        <figcaption><b>Fig. 3 — Bubble plots of median BL and GLCM features</b> per bi-temporal ROI class (local cohort), for LVO (filled, larger) and non-LVO (open, smaller) subgroups; bubble size encodes voxel count. A consistent phenotypic gradient runs from healthy (ROI<sup>b</sup><sub>CLB</sub>) through salvaged penumbra (ROI<sup>b</sup><sub>p</sub>) to infarcted tissue.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== INTERACTIVE ===================== -->
+  <section class="block-sec" id="interactive">
+    <div class="container-wide">
+      <p class="sec-kicker">Explore the Data</p>
+      <h2 class="sec-title">Interactive t-SNE embeddings — ISLES'24</h2>
+      <p class="sec-sub">Live Plotly projections of the admission-CTP feature space on the public ISLES'24 cohort. <b>Hover</b> points for details, <b>drag</b> to zoom, <b>double-click</b> to reset, and toggle ROI classes in the legend.</p>
+
+      <div class="tabs-bar">
+        <button class="tab-btn active" data-pane="p1">mJ-Net · slice-level</button>
+        <button class="tab-btn" data-pane="p2">mJ-Net · patient-level</button>
+        <button class="tab-btn" data-pane="p3">Baseline · slice-level</button>
+        <button class="tab-btn" data-pane="p4">Baseline · patient-level</button>
+      </div>
+
+      <div class="pane active" id="p1">
+        <h4>mJ-Net (FE3) deep embeddings — slice-level</h4>
+        <p class="desc">Slice-aggregated CNN embeddings across the six ROI classes on ISLES'24.</p>
+        <div class="iframe-shell"><iframe data-src="static/interactive/mjnet_tsne_slice_isles.html" loading="lazy" title="mJ-Net slice-level t-SNE"></iframe></div>
+      </div>
+      <div class="pane" id="p2">
+        <h4>mJ-Net (FE3) deep embeddings — patient-level</h4>
+        <p class="desc">Patient-aggregated mJ-Net embeddings on ISLES'24.</p>
+        <div class="iframe-shell"><iframe data-src="static/interactive/mjnet_tsne_patient_isles.html" loading="lazy" title="mJ-Net patient-level t-SNE"></iframe></div>
+      </div>
+      <div class="pane" id="p3">
+        <h4>Baseline statistical features (FE1) — slice-level</h4>
+        <p class="desc">Model-free, handcrafted first-order statistics on ISLES'24.</p>
+        <div class="iframe-shell"><iframe data-src="static/interactive/bl_tsne_slice_isles.html" loading="lazy" title="Baseline slice-level t-SNE"></iframe></div>
+      </div>
+      <div class="pane" id="p4">
+        <h4>Baseline statistical features (FE1) — patient-level</h4>
+        <p class="desc">Patient-aggregated baseline statistics on ISLES'24.</p>
+        <div class="iframe-shell"><iframe data-src="static/interactive/bl_tsne_patient_isles.html" loading="lazy" title="Baseline patient-level t-SNE"></iframe></div>
+      </div>
+      <p class="iframe-hint">Interactive figures are rendered with Plotly · best viewed on a wider screen.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ABLATION + SUBGROUP ===================== -->
+  <section class="block-sec alt-bg">
+    <div class="container-wide">
+      <p class="sec-kicker">Robustness</p>
+      <h2 class="sec-title">Ablation &amp; subgroup analyses</h2>
+
+      <div class="columns is-variable is-5" style="margin-top:1.2rem;">
+        <div class="column is-half">
+          <h3 class="sec-title" style="font-size:1.2rem;text-align:left;">Table III — Normalization &amp; pooling (∆̃<sub>cos</sub>)</h3>
+          <p class="tbl-cap" style="margin:0 0 .7rem;">Local cohort, all entries significant (<i>p</i>&nbsp;&lt;&nbsp;0.05). <b>Bold</b> = highest per test within model.</p>
+          <div class="tbl-wrap">
+            <table class="rt">
+              <thead><tr><th>Model</th><th>Norm.</th><th>Aggr.</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th></tr></thead>
+              <tbody>
+                <tr><th rowspan="6" style="vertical-align:middle">mJ-Net</th><td>None</td><td>Mean</td><td>0.068</td><td>0.018</td><td>0.209</td><td>0.181</td></tr>
+                <tr><td>None</td><td>Median</td><td>0.091</td><td>0.023</td><td class="bold">0.213</td><td>0.215</td></tr>
+                <tr><td>None</td><td>Max</td><td>0.033</td><td>0.015</td><td>0.085</td><td>0.119</td></tr>
+                <tr><td>Z-score</td><td>Mean</td><td>0.098</td><td>0.029</td><td>0.196</td><td>0.264</td></tr>
+                <tr><td>Z-score</td><td>Median</td><td>0.114</td><td class="bold">0.036</td><td>0.200</td><td>0.290</td></tr>
+                <tr><td>Z-score</td><td>Max</td><td class="bold">0.146</td><td>0.031</td><td>0.127</td><td class="bold">0.460</td></tr>
+                <tr><th rowspan="6" style="vertical-align:middle">nnU-Net</th><td>None</td><td>Mean</td><td>0.019</td><td>0.009</td><td>0.061</td><td>0.085</td></tr>
+                <tr><td>None</td><td>Median</td><td>0.023</td><td>0.011</td><td>0.074</td><td>0.099</td></tr>
+                <tr><td>None</td><td>Max</td><td>0.011</td><td>0.004</td><td>0.024</td><td>0.051</td></tr>
+                <tr><td>Z-score</td><td>Mean</td><td>0.066</td><td>0.029</td><td class="bold">0.140</td><td class="bold">0.270</td></tr>
+                <tr><td>Z-score</td><td>Median</td><td>0.071</td><td>0.028</td><td>0.137</td><td>0.259</td></tr>
+                <tr><td>Z-score</td><td>Max</td><td class="bold">0.091</td><td class="bold">0.038</td><td>0.090</td><td>0.193</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="tbl-cap">Z-score normalization generally improves separation; Max&nbsp;+&nbsp;Z-score gives the strongest result on the primary penumbra test (Test 1) and is used for the reported CNN results.</p>
+        </div>
+
+        <div class="column is-half">
+          <h3 class="sec-title" style="font-size:1.2rem;text-align:left;">Table IV — Subgroups (mJ-Net ∆̃<sub>cos</sub>)</h3>
+          <p class="tbl-cap" style="margin:0 0 .7rem;">Local cohort. All entries significant (<span class="sig y">✓</span>).</p>
+          <div class="tbl-wrap">
+            <table class="rt">
+              <thead><tr><th>Subgroup</th><th>n</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th></tr></thead>
+              <tbody>
+                <tr><td class="grp" colspan="6">Stroke hemisphere</td></tr>
+                <tr><th>Left</th><td>53</td><td>0.133</td><td>0.028</td><td>0.124</td><td>0.466</td></tr>
+                <tr><th>Right</th><td>51</td><td>0.155</td><td>0.029</td><td>0.143</td><td>0.458</td></tr>
+                <tr><td class="grp" colspan="6">Onset-to-CT time (median 1.22 h)</td></tr>
+                <tr><th>&lt; 1.22 h</th><td>51</td><td>0.163</td><td>0.049</td><td>0.137</td><td>0.453</td></tr>
+                <tr><th>≥ 1.22 h</th><td>54</td><td>0.137</td><td>0.023</td><td>0.122</td><td>0.448</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="tbl-cap">Separation is stable across left/right hemisphere and onset-to-CT timing, indicating the pattern is not driven by lateralization or imaging delay.</p>
+
+          <div class="card-hl" style="margin-top:1.4rem;">
+            <div class="ic"><i class="fas fa-flask"></i></div>
+            <h4>Cohorts at a glance</h4>
+            <p>Local: 109 / 149 patients, age 71.9&nbsp;±&nbsp;14.4, admission NIHSS 9.4&nbsp;±&nbsp;8.3, manual T<sub>1</sub>/T<sub>2</sub> annotation. ISLES'24: 149 patients, age 71.1&nbsp;±&nbsp;14.7, NIHSS 12.0&nbsp;±&nbsp;6.3, automated nnU-Net T<sub>1</sub> + hybrid T<sub>2</sub> masks. Both CT&nbsp;→&nbsp;MRI, 1&nbsp;s CTP temporal resolution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BIBTEX ===================== -->
+  <section class="block-sec">
+    <div class="container-narrow">
+      <div class="bib-head">
+        <h2 class="sec-title" style="text-align:left;margin:0;">BibTeX</h2>
+        <button class="copy-btn" id="copyBib"><i class="fas fa-copy"></i> <span>Copy</span></button>
+      </div>
+      <pre class="bib"><code id="bibtex">@inproceedings{rahman2026bitemporal,
+  title     = {Bi-temporal Image-driven Acute Stroke Evolution Analysis},
+  author    = {Rahman, Md Sazidur and Engan, Kjersti and
+               Kurz, Kathinka D{\ae}hli and Khanmohammadi, Mahdieh},
+  booktitle = {IEEE International Conference on Biomedical and Health
+               Informatics (BHI)},
+  year      = {2026},
+  note      = {Under review}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="ft">
+    <div class="container-narrow">
+      <p style="margin-bottom:.5rem;"><b>Bi-temporal Image-driven Acute Stroke Evolution Analysis</b></p>
+      <p>University of Stavanger &amp; Stavanger University Hospital · IEEE BHI 2026 (under review)</p>
+      <p style="margin-top:.9rem;font-size:.8rem;opacity:.8;">Page built from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>. Private preview — please do not redistribute.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="this.classList.remove('open')"><img id="lightbox-img" src="" alt=""></div>
+
+  <script>
+    // Lazy-load iframes only when their tab is first shown (saves ~20 MB upfront)
+    function loadIframe(pane){
+      var f = pane.querySelector('iframe');
+      if(f && !f.src && f.dataset.src){ f.src = f.dataset.src; }
+    }
+    var firstPane = document.getElementById('p1');
+    if(firstPane) loadIframe(firstPane);
+
+    document.querySelectorAll('.tab-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+        btn.classList.add('active');
+        var pane = document.getElementById(btn.dataset.pane);
+        pane.classList.add('active');
+        loadIframe(pane);
+      });
+    });
+
+    // Lightbox for figures
+    document.querySelectorAll('figure.fig img').forEach(function(img){
+      img.addEventListener('click', function(){
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('open');
+      });
+    });
+
+    // Copy BibTeX
+    document.getElementById('copyBib').addEventListener('click', function(){
+      var txt = document.getElementById('bibtex').innerText;
+      var self = this;
+      navigator.clipboard.writeText(txt).then(function(){
+        var s = self.querySelector('span'); var old = s.innerText;
+        s.innerText = 'Copied!'; setTimeout(function(){ s.innerText = old; }, 1600);
+      });
+    });
+
+    // Scroll-to-top
+    var st = document.getElementById('scrollTop');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 600) st.classList.add('show'); else st.classList.remove('show');
+    });
+  </script>
+</body>
+</html>

@@ -1,80 +1,54 @@
-# Academic Project Page Template
+# Bi-temporal Image-driven Acute Stroke Evolution Analysis — Project Page
 
-> **Update (September 2025)**: This template has been modernized with better design, SEO, and mobile support. For the original version, see the [original-version branch](https://github.com/eliahuhorwitz/Academic-project-page-template/tree/original-version).
+Private project page for the paper **"Bi-temporal Image-driven Acute Stroke Evolution Analysis"**
+(Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi),
+under review at **IEEE BHI 2026**.
 
-A clean, responsive template for academic project pages.
+> ⚠️ **Private / unlisted.** This repository and page are kept private while the paper is
+> under review. The page sets `robots: noindex, nofollow` and the code release is gated
+> until publication.
 
+## What's here
 
-Example project pages built using this template are:
-- https://horwitz.ai/probex
-- https://vision.huji.ac.il/probegen
-- https://horwitz.ai/mother
-- https://horwitz.ai/spectral_detuning
-- https://vision.huji.ac.il/ladeda
-- https://vision.huji.ac.il/dsire
-- https://horwitz.ai/podd
-- https://dreamix-video-editing.github.io
-- https://horwitz.ai/conffusion
-- https://horwitz.ai/3d_ads/
-- https://vision.huji.ac.il/ssrl_ad
-- https://vision.huji.ac.il/deepsim
+- `index.html` — the full single-page site (self-contained; styles are inlined).
+- `static/images/paper/` — the four paper figures (Fig. 1–4), extracted from the submitted PDF
+  and downsized for the web.
+- `static/interactive/` — interactive **Plotly** t-SNE figures (ISLES'24), embedded as
+  lazy-loaded iframes:
+  - `mjnet_tsne_slice_isles.html`, `mjnet_tsne_patient_isles.html` — mJ-Net deep embeddings
+  - `bl_tsne_slice_isles.html`, `bl_tsne_patient_isles.html` — baseline statistical features
+- `static/pdfs/bi-temporal-ctp-dwi.pdf` — the submitted manuscript.
+- `static/css/`, `static/js/` — Bulma + Font Awesome assets from the
+  [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template).
 
+## Page sections
 
+1. Hero (title, authors, links)
+2. Framework overview (Fig. 1)
+3. Abstract
+4. Highlights + headline numbers
+5. The six bi-temporal ROI classes (color legend)
+6. Results — the four region-pair tests and an interactive, color-coded **Table II**
+7. Visual analysis — Fig. 2 (t-SNE FE1–FE4), Fig. 4 (mJ-Net t-SNE), Fig. 3 (bubble plots);
+   click any figure to open it full-screen
+8. Interactive t-SNE explorer (tabbed Plotly figures)
+9. Ablation (Table III) and subgroup (Table IV) analyses
+10. BibTeX
 
-## Start using the template
-To start using the template click on `Use this Template`.
+## Run locally
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+```bash
+python3 -m http.server 8000
+# then open http://localhost:8000
+```
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+The interactive iframes are loaded only when their tab is first opened, so the initial page
+stays light despite the ~20 MB of bundled Plotly figures.
 
-## What's New
+## Going public later
 
-- Modern, clean design with better mobile support
-- Improved SEO with proper meta tags and structured data
-- Performance improvements (lazy loading, optimized assets)
-- More Works dropdown
-- Copy button for BibTeX citations
-- Better accessibility
-
-## Components
-
-- Teaser video
-- Image carousel
-- YouTube video embedding
-- Video carousel
-- PDF poster viewer
-- BibTeX citation
-
-## Customization
-
-The HTML file has TODO comments showing what to replace:
-
-- Paper title, authors, institution, conference
-- Links (arXiv, GitHub, etc.)
-- Abstract and descriptions  
-- Videos, images, and PDFs
-- Related works in the dropdown
-- Meta tags for SEO and social sharing
-
-### Meta Tags
-The template includes meta tags for better search engine visibility and social media sharing. These appear in the `<head>` section and help with:
-- Google Scholar indexing
-- Social media previews (Twitter, Facebook, LinkedIn)
-- Search engine optimization
-
-Create a 1200x630px social preview image at `static/images/social_preview.png`.
-
-## Tips
-
-- Compress images with [TinyPNG](https://tinypng.com)
-- Use YouTube for large videos (>10MB)  
-- Replace the favicon in `static/images/`
-- Works with GitHub Pages
-
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
-
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+When the paper is accepted:
+- update `note = {Under review}` in the BibTeX and the venue badge in `index.html`,
+- fill in the GitHub **Code** link (currently disabled) and the arXiv/DOI links,
+- change `<meta name="robots" ...>` to `index, follow`,
+- make the repository public and enable GitHub Pages.
