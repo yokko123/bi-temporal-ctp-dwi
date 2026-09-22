@@ -62,16 +62,13 @@ cd 03_analysis && python run_table3_region_pairs.py --config ../demo/data/config
 
 ### Page sections
 
-1. Hero (title, authors, links)
+The page is deliberately plain: one column, no colour, no scripts.
+
+1. Title, authors, and the Paper / Code links
 2. Framework overview (Fig. 1)
 3. Abstract
-4. Highlights and headline numbers
-5. The six bi-temporal ROI classes
-6. Results — the four region-pair tests and an interactive Table II
-7. Visual analysis — Fig. 2 (t-SNE FE1–FE4), Fig. 4 (mJ-Net t-SNE), Fig. 3 (bubble plots)
-8. Interactive t-SNE explorer (tabbed Plotly figures)
-9. Ablation (Table III) and subgroup (Table IV) analyses
-10. BibTeX
+4. Results - the four region-pair comparisons, plus Figs. 2-4
+5. BibTeX
 
 Run it locally with:
 
@@ -79,8 +76,13 @@ Run it locally with:
 python3 -m http.server 8000     # then open http://localhost:8000
 ```
 
-The interactive iframes load only when their tab is first opened, so the initial
-page stays light despite the ~20 MB of bundled Plotly figures.
+`index.html` is self-contained apart from the figures under
+`static/images/paper/` and the Inter webfont. Figures were re-extracted from the
+manuscript PDF composited onto white; the earlier copies had their alpha
+flattened onto black, which hid the panel titles and legends.
+
+`static/css/`, `static/js/` and `static/interactive/` are left over from the
+previous Bulma-based page and are no longer referenced.
 
 ## Data
 
@@ -99,9 +101,12 @@ paths from a YAML config. Both default to `/path/to/...` placeholders, and
 
 When the paper is accepted:
 
-- update `note = {Under review}` in the BibTeX and the venue badge in `index.html`,
-- fill in the arXiv / DOI links (the **Code** link is already live),
+- update `note = {Under review}` in the BibTeX and the "Under review" line under
+  the authors in `index.html`,
+- replace the `Paper (on publication)` placeholder with the PDF / arXiv / DOI
+  link (the **Code** link is already live),
 - change `<meta name="robots" ...>` to `index, follow`,
+- drop the footer line about the page being private,
 - make the repository public and enable GitHub Pages.
 
 ## License

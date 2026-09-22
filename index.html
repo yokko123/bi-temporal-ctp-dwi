@@ -1,596 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bi-temporal Image-driven Acute Stroke Evolution Analysis</title>
+<meta name="description" content="Linking admission CT perfusion signatures to follow-up DWI-defined tissue outcome through six outcome-aware ROI classes.">
+<link rel="icon" href="static/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --ink:#111;
+    --muted:#666;
+    --rule:#e2e2e2;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:#fff;
+    color:var(--ink);
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:17px;
+    line-height:1.7;
+  }
+  main{max-width:780px;margin:0 auto;padding:0 16px 5rem;}
 
-  <!-- Primary Meta Tags -->
-  <meta name="title" content="Bi-temporal Image-driven Acute Stroke Evolution Analysis">
-  <meta name="description" content="A bi-temporal tissue phenotyping framework linking admission CTP signatures to follow-up DWI-defined tissue outcome via six outcome-aware ROI classes, using statistical, radiomic, and deep CNN features.">
-  <meta name="keywords" content="acute ischemic stroke, CT perfusion, CTP, diffusion MRI, DWI, radiomics, GLCM, CNN embeddings, mJ-Net, nnU-Net, tissue phenotyping, penumbra, ischemic core, ISLES24, medical imaging">
-  <meta name="author" content="Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="language" content="English">
+  a{color:inherit;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+  a:hover{text-decoration-thickness:2px;}
 
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="University of Stavanger">
-  <meta property="og:title" content="Bi-temporal Image-driven Acute Stroke Evolution Analysis">
-  <meta property="og:description" content="Linking admission CTP signatures to follow-up DWI tissue outcome through bi-temporal tissue phenotyping.">
+  /* ---------- header ---------- */
+  header{text-align:center;padding:4rem 0 2.5rem;}
+  h1{font-size:2rem;line-height:1.25;font-weight:700;letter-spacing:-.02em;margin:0 0 1.4rem;}
+  .authors{margin:0 0 .3rem;font-size:1.02rem;}
+  .affil{margin:0 0 .25rem;color:var(--muted);font-size:.95rem;}
+  .note{margin:.2rem 0 0;color:var(--muted);font-size:.85rem;}
+  .links{margin:1.6rem 0 0;font-size:1.02rem;}
+  .links a,.links .pending{margin:0 .7rem;white-space:nowrap;}
+  .links .pending{color:var(--muted);}
 
-  <meta name="citation_title" content="Bi-temporal Image-driven Acute Stroke Evolution Analysis">
-  <meta name="citation_author" content="Rahman, Md Sazidur">
-  <meta name="citation_author" content="Engan, Kjersti">
-  <meta name="citation_author" content="Kurz, Kathinka Dæhli">
-  <meta name="citation_author" content="Khanmohammadi, Mahdieh">
-  <meta name="citation_publication_date" content="2026">
-  <meta name="citation_conference_title" content="IEEE International Conference on Biomedical and Health Informatics (BHI)">
+  /* ---------- sections ---------- */
+  section{padding:2.6rem 0 0;}
+  h2{
+    font-size:1.3rem;font-weight:600;letter-spacing:-.01em;
+    margin:0 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule);
+  }
+  p{margin:0 0 1.1rem;}
+  .abstract p{text-align:justify;hyphens:auto;}
 
-  <meta name="theme-color" content="#0d9488">
+  /* ---------- figures ---------- */
+  figure{margin:2.2rem 0;}
+  figure img{display:block;width:100%;height:auto;background:#fff;}
+  figcaption{margin-top:.7rem;font-size:.88rem;line-height:1.6;color:var(--muted);}
+  figcaption b{color:var(--ink);font-weight:600;}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  /* figures allowed to exceed the text column */
+  .wide{
+    width:min(1080px, calc(100vw - 32px));
+    margin-left:calc(50% - min(540px, (100vw - 32px)/2));
+  }
 
-  <title>Bi-temporal Image-driven Acute Stroke Evolution Analysis</title>
+  /* ---------- table ---------- */
+  .table-wrap{overflow-x:auto;margin:1.6rem 0 .8rem;}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums;}
+  th,td{padding:.55rem .7rem;text-align:right;border-bottom:1px solid var(--rule);}
+  th:first-child,td:first-child{text-align:left;}
+  thead th{font-weight:600;}
+  thead tr:first-child th{border-bottom:1px solid var(--ink);}
+  tbody tr:last-child td{border-bottom:1px solid var(--ink);}
+  .grp{text-align:center;font-weight:600;font-size:.82rem;color:var(--muted);}
+  .cmp{color:var(--muted);font-size:.84rem;}
+  .tnote{font-size:.85rem;color:var(--muted);margin:0;}
 
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  /* ---------- bibtex ---------- */
+  pre{
+    margin:0;padding:1.1rem 1.2rem;
+    background:#fafafa;border:1px solid var(--rule);
+    overflow-x:auto;font-size:.82rem;line-height:1.6;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
 
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  footer{
+    margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
+    font-size:.85rem;color:var(--muted);
+  }
 
-  <style>
-    :root{
-      --bg:#0b1220; --panel:#0f1a2e; --ink:#1f2937; --muted:#6b7280;
-      --teal:#0d9488; --teal-d:#0f766e; --accent:#2563eb;
-      /* ROI fate colors */
-      --c-clb:#2e8b6f;       /* contralateral healthy -> healthy */
-      --c-core-b:#1f6f54;    /* core -> salvaged */
-      --c-pen-b:#8fd18c;     /* penumbra -> salvaged */
-      --c-core-fi:#8c1d1d;   /* core -> infarct */
-      --c-pen-fi:#e8743b;    /* penumbra -> infarct */
-      --c-nhb-fi:#d62728;    /* non-hypoperfused -> infarct */
-      /* effect-size shades */
-      --sh-negl:#f4f6f8; --sh-small:#dcede4; --sh-med:#aedcc0; --sh-large:#6ec99a;
-      --sh-rneg:#fbeaea; --sh-rsmall:#f3cccc;
-    }
-    html{scroll-behavior:smooth;}
-    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1f2937;line-height:1.65;background:#fff;}
-    .title,.subtitle{font-family:'Inter',sans-serif;}
-    a{color:var(--teal-d);} a:hover{color:var(--teal);}
-
-    /* HERO */
-    .hero-head-wrap{background:linear-gradient(160deg,#0b1220 0%,#0f2a33 55%,#0d4a44 100%);color:#fff;padding:4.5rem 1.25rem 3rem;}
-    .hero-head-wrap .publication-title{color:#fff;font-weight:800;letter-spacing:-.02em;line-height:1.12;font-size:2.55rem;max-width:980px;margin:0 auto 1.25rem;}
-    .venue-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#e6fffb;font-weight:600;font-size:.85rem;padding:.35rem .9rem;border-radius:999px;margin-bottom:1.4rem;letter-spacing:.04em;}
-    .authors{font-size:1.12rem;color:#dbeee9;margin-bottom:.4rem;font-weight:500;}
-    .authors a{color:#fff;border-bottom:1px dotted rgba(255,255,255,.5);}
-    .affil{color:#a9cfc8;font-size:.97rem;margin-bottom:.2rem;}
-    .eql{color:#86b8b0;font-size:.85rem;}
-    .links{margin-top:1.7rem;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;}
-    .btn-link{display:inline-flex;align-items:center;gap:.5rem;background:#0f1a2e;color:#fff;border:1px solid rgba(255,255,255,.18);padding:.6rem 1.15rem;border-radius:999px;font-weight:600;font-size:.95rem;transition:.18s;}
-    .btn-link:hover{background:#fff;color:#0b1220;transform:translateY(-2px);}
-    .btn-link.disabled{opacity:.5;cursor:not-allowed;}
-    .private-note{margin-top:1.4rem;font-size:.82rem;color:#9fc3bc;}
-
-    /* SECTION */
-    section.block-sec{padding:3.4rem 1.25rem;}
-    .container-narrow{max-width:980px;margin:0 auto;}
-    .container-wide{max-width:1180px;margin:0 auto;}
-    .sec-title{font-size:1.9rem;font-weight:800;color:#0f172a;letter-spacing:-.01em;margin-bottom:.4rem;text-align:center;}
-    .sec-kicker{text-align:center;color:var(--teal-d);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;margin-bottom:.4rem;}
-    .sec-sub{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 2.2rem;}
-    .alt-bg{background:#f6f9fb;}
-
-    .abstract-card{background:#fff;border:1px solid #e6ecf1;border-radius:16px;padding:2rem 2.2rem;box-shadow:0 8px 30px rgba(15,40,60,.05);}
-    .abstract-card p{text-align:justify;color:#374151;font-size:1.02rem;}
-
-    /* highlight cards */
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;}
-    .card-hl{background:#fff;border:1px solid #e6ecf1;border-radius:14px;padding:1.4rem;transition:.18s;}
-    .card-hl:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,40,60,.08);}
-    .card-hl .ic{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--teal),var(--teal-d));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.9rem;}
-    .card-hl h4{font-weight:700;color:#0f172a;margin-bottom:.4rem;font-size:1.06rem;}
-    .card-hl p{color:#5b6675;font-size:.93rem;margin:0;}
-    .stat-num{font-size:1.7rem;font-weight:800;color:var(--teal-d);}
-
-    /* figures */
-    figure.fig{margin:0 0 1rem;background:#fff;border:1px solid #e6ecf1;border-radius:14px;padding:1.1rem;box-shadow:0 6px 22px rgba(15,40,60,.05);}
-    figure.fig img{width:100%;height:auto;border-radius:8px;cursor:zoom-in;display:block;}
-    figure.fig figcaption{font-size:.9rem;color:#5b6675;margin-top:.8rem;padding:0 .3rem;}
-    figure.fig figcaption b{color:#0f172a;}
-
-    /* ROI legend */
-    .roi-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.6rem;margin:1.5rem 0;}
-    .roi-item{display:flex;align-items:flex-start;gap:.65rem;background:#fff;border:1px solid #e6ecf1;border-radius:10px;padding:.65rem .8rem;font-size:.9rem;}
-    .roi-dot{flex:none;width:16px;height:16px;border-radius:5px;margin-top:.2rem;}
-    .roi-item b{color:#0f172a;} .roi-item span.sub{color:#6b7280;font-size:.82rem;display:block;}
-
-    /* tables */
-    .tbl-wrap{overflow-x:auto;background:#fff;border:1px solid #e6ecf1;border-radius:14px;padding:.4rem;box-shadow:0 6px 22px rgba(15,40,60,.05);}
-    table.rt{width:100%;border-collapse:collapse;font-size:.86rem;}
-    table.rt th,table.rt td{padding:.5rem .6rem;text-align:center;border-bottom:1px solid #eef2f5;white-space:nowrap;}
-    table.rt thead th{background:#0f1a2e;color:#fff;font-weight:600;position:sticky;top:0;}
-    table.rt thead th.test{font-size:.78rem;}
-    table.rt tbody th{text-align:left;font-weight:600;color:#374151;background:#f8fafb;}
-    table.rt .grp{background:#eef5f3;color:var(--teal-d);font-weight:700;text-align:left;letter-spacing:.04em;font-size:.78rem;text-transform:uppercase;}
-    table.rt .cohort{background:#0d4a44;color:#fff;font-weight:700;text-align:left;letter-spacing:.05em;}
-    .sig{font-weight:700;} .sig.y{color:#15803d;} .sig.n{color:#b91c1c;}
-    td.negl{background:var(--sh-negl);} td.small{background:var(--sh-small);} td.med{background:var(--sh-med);} td.large{background:var(--sh-large);}
-    td.rneg{background:var(--sh-rneg);} td.rsmall{background:var(--sh-rsmall);}
-    td.bold{font-weight:800;color:#0b3d36;}
-    .tbl-cap{font-size:.88rem;color:#5b6675;margin:.7rem .2rem 0;}
-    .tbl-cap b{color:#0f172a;}
-    .legend-inline{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:1rem 0 .2rem;font-size:.82rem;color:#5b6675;}
-    .legend-inline .chip{display:inline-flex;align-items:center;gap:.4rem;}
-    .legend-inline .sw{width:26px;height:14px;border-radius:3px;border:1px solid #d7dee4;}
-
-    /* test pills */
-    .tests{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-bottom:2rem;}
-    .test-card{border:1px solid #e6ecf1;border-radius:12px;padding:1.1rem 1.2rem;background:#fff;}
-    .test-card .tnum{display:inline-block;background:var(--teal);color:#fff;font-weight:700;font-size:.74rem;padding:.18rem .6rem;border-radius:999px;margin-bottom:.55rem;letter-spacing:.05em;}
-    .test-card h5{font-weight:700;color:#0f172a;margin-bottom:.3rem;font-size:.98rem;}
-    .test-card code{background:#eef5f3;color:#0f766e;padding:.05rem .35rem;border-radius:5px;font-size:.82rem;}
-    .test-card p{color:#5b6675;font-size:.88rem;margin:.45rem 0 0;}
-
-    /* interactive tabs */
-    .tabs-bar{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:1.2rem;}
-    .tab-btn{border:1px solid #cdd9e0;background:#fff;color:#334155;padding:.55rem 1.05rem;border-radius:999px;font-weight:600;font-size:.9rem;cursor:pointer;transition:.15s;}
-    .tab-btn:hover{border-color:var(--teal);color:var(--teal-d);}
-    .tab-btn.active{background:var(--teal-d);border-color:var(--teal-d);color:#fff;}
-    .iframe-shell{background:#fff;border:1px solid #e6ecf1;border-radius:14px;padding:.5rem;box-shadow:0 6px 22px rgba(15,40,60,.05);}
-    .iframe-shell iframe{width:100%;height:560px;border:0;border-radius:9px;display:block;background:#fff;}
-    .iframe-hint{text-align:center;color:#94a3b8;font-size:.82rem;margin-top:.6rem;}
-    .pane{display:none;} .pane.active{display:block;}
-    .pane h4{font-weight:700;color:#0f172a;margin:0 0 .2rem;font-size:1.05rem;}
-    .pane .desc{color:#5b6675;font-size:.9rem;margin-bottom:.9rem;}
-
-    /* bibtex */
-    .bib-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;}
-    .copy-btn{border:1px solid #cdd9e0;background:#fff;color:#334155;padding:.45rem .9rem;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem;}
-    .copy-btn:hover{border-color:var(--teal);color:var(--teal-d);}
-    pre.bib{background:#0f1a2e;color:#d7e6e3;border-radius:12px;padding:1.3rem 1.4rem;overflow-x:auto;font-size:.85rem;line-height:1.5;}
-
-    footer.ft{background:#0b1220;color:#9fb4b0;padding:2.4rem 1.25rem;text-align:center;font-size:.88rem;}
-    footer.ft a{color:#cdeee8;}
-
-    /* lightbox */
-    #lightbox{display:none;position:fixed;inset:0;background:rgba(7,12,20,.92);z-index:9999;cursor:zoom-out;padding:2rem;}
-    #lightbox.open{display:flex;align-items:center;justify-content:center;}
-    #lightbox img{max-width:96%;max-height:94%;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6);}
-
-    .scroll-top{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--teal-d);color:#fff;border:0;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 8px 22px rgba(13,118,132,.4);z-index:50;}
-    .scroll-top.show{display:flex;}
-
-    @media(max-width:768px){
-      .hero-head-wrap .publication-title{font-size:1.85rem;}
-      .iframe-shell iframe{height:430px;}
-      section.block-sec{padding:2.4rem 1rem;}
-    }
-  </style>
+  @media (max-width:640px){
+    body{font-size:16px;}
+    header{padding:2.5rem 0 1.5rem;}
+    h1{font-size:1.55rem;}
+    .links a{display:inline-block;margin:.25rem .6rem;}
+    .wide{width:100%;margin-left:0;}
+  }
+</style>
 </head>
 <body>
+<main>
 
-  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+  <header>
+    <h1>Bi-temporal Image-driven<br>Acute Stroke Evolution Analysis</h1>
+    <p class="authors">
+      Md Sazidur Rahman<sup>*</sup>,
+      Kjersti Engan<sup>*</sup>,
+      Kathinka Dæhli Kurz<sup>*</sup>,
+      Mahdieh Khanmohammadi
+    </p>
+    <p class="affil">University of Stavanger &middot; Stavanger University Hospital</p>
+    <p class="note"><sup>*</sup> Equal contribution &middot; Under review, IEEE BHI 2026</p>
 
-  <!-- ===================== HERO ===================== -->
-  <header class="hero-head-wrap">
-    <div class="container-narrow has-text-centered">
-      <span class="venue-badge"><i class="fas fa-lock" style="font-size:.7rem;margin-right:.35rem;"></i> Under review · IEEE BHI 2026 · Private preview</span>
-      <h1 class="publication-title">Bi-temporal Image-driven Acute Stroke Evolution Analysis</h1>
-      <p class="authors">
-        Md Sazidur Rahman<sup>*</sup>,
-        Kjersti Engan<sup>*</sup>,
-        Kathinka Dæhli Kurz<sup>*</sup>,
-        Mahdieh Khanmohammadi
-      </p>
-      <p class="affil">University of Stavanger, Norway · Stavanger University Hospital</p>
-      <p class="eql"><sup>*</sup> Equal contribution</p>
-
-      <div class="links">
-        <span class="btn-link disabled" title="PDF will be available upon publication">
-          <i class="fas fa-file-pdf"></i> Paper (coming soon)
-        </span>
-        <a class="btn-link" href="#interactive">
-          <i class="fas fa-braille"></i> Interactive figures
-        </a>
-        <a class="btn-link" href="#results">
-          <i class="fas fa-table"></i> Results
-        </a>
-        <a class="btn-link" href="https://github.com/yokko123/bi-temporal-ctp-dwi/tree/master/code" target="_blank" rel="noopener" title="Preprocessing, feature extraction and analysis code">
-          <i class="fab fa-github"></i> Code
-        </a>
-      </div>
-      <p class="private-note"><i class="fas fa-eye-slash"></i> This page is private and unlisted while the paper is under review.</p>
-    </div>
+    <p class="links">
+      <span class="pending">Paper (on publication)</span>
+      <a href="https://github.com/yokko123/bi-temporal-ctp-dwi/tree/master/code">Code</a>
+    </p>
   </header>
 
-  <!-- ===================== FRAMEWORK / TEASER ===================== -->
-  <section class="block-sec">
-    <div class="container-wide">
-      <p class="sec-kicker">Framework Overview</p>
-      <h2 class="sec-title">From admission CTP to follow-up DWI tissue fate</h2>
-      <p class="sec-sub">Admission CT perfusion (T<sub>1</sub>) is spatially aligned with follow-up diffusion MRI (T<sub>2</sub>) to construct six outcome-aware regions of interest. Admission tissue is then characterized with statistical, radiomic, and deep CNN features.</p>
-      <figure class="fig">
-        <img src="static/images/paper/fig1_framework.png" alt="Framework overview: bi-temporal ROI construction and feature extraction (FE1–FE4)">
-        <figcaption><b>Fig. 1 — Overview of the framework.</b> <b>Top:</b> Bi-temporal ROI construction — CTP at T<sub>1</sub> is preprocessed and registered to NCCT space and intersected with DWI-defined outcome at T<sub>2</sub> to form six ROI classes. <b>Bottom:</b> CTP feature extraction (FE1–FE4): baseline statistics (BL), GLCM radiomics, and mJ-Net / nnU-Net deep embeddings.</figcaption>
-      </figure>
-    </div>
+  <figure class="wide">
+    <img src="static/images/paper/fig1_framework.png"
+         alt="Framework overview: bi-temporal ROI construction from registered CTP and DWI, and the four feature extraction families.">
+    <figcaption><b>Framework overview.</b> Top: bi-temporal ROI construction, intersecting registered
+    admission CTP and follow-up DWI masks into six outcome-aware classes. Bottom: CTP feature
+    extraction (FE1&ndash;FE4). ROI<sup>y</sup><sub>x</sub>, admission class <i>x</i> and outcome
+    <i>y</i>: <i>c</i> core, <i>p</i> penumbra, NHB non-hypoperfused, CLB contralateral,
+    <i>b</i><sub>T2</sub> non-infarcted, <i>fi</i> final infarct.</figcaption>
+  </figure>
+
+  <section class="abstract">
+    <h2>Abstract</h2>
+    <p>Acute ischemic stroke requires rapid treatment decisions that are strongly guided by emergency
+    imaging. Admission computed tomography perfusion (CTP) is commonly used to estimate the ischemic
+    core, representing irreversibly damaged tissue, and the penumbra, representing hypoperfused but
+    potentially salvageable tissue. Follow-up diffusion-weighted MRI (DWI) is then used to define the
+    final infarct. Existing imaging approaches primarily focus on core&ndash;penumbra segmentation or
+    final-infarct prediction, but provide limited insight into how heterogeneous penumbral tissue
+    evolves after treatment.</p>
+
+    <p>We propose a bi-temporal tissue phenotyping framework that links admission CTP signatures with
+    follow-up DWI-defined tissue outcome using six outcome-aware region-of-interest classes. Admission
+    tissue signatures are characterized using statistical, radiomic, and deep-learning features
+    extracted from mJ-Net and nnU-Net representations. On a local cohort, salvaged and infarcted
+    penumbra showed consistent feature-space separation
+    (&Delta;&#771;<sub>cos</sub>&nbsp;=&nbsp;0.146, <i>p</i>&nbsp;&lt;&nbsp;0.05), while core tissue
+    showed minimal separation by subsequent fate. The largest separation was observed between initially
+    non-hypoperfused tissue that later infarcted and healthy contralateral tissue
+    (&Delta;&#771;<sub>cos</sub>&nbsp;=&nbsp;0.460, <i>p</i>&nbsp;&lt;&nbsp;0.05). Cross-dataset
+    evaluation on ISLES&rsquo;24 showed similar trends, supporting the consistency of the observed
+    feature-space patterns across cohorts. These findings suggest that admission CTP contains
+    outcome-associated tissue information beyond conventional core-penumbra delineation.</p>
   </section>
 
-  <!-- ===================== ABSTRACT ===================== -->
-  <section class="block-sec alt-bg">
-    <div class="container-narrow">
-      <p class="sec-kicker">Abstract</p>
-      <h2 class="sec-title">What the paper shows</h2>
-      <div class="abstract-card" style="margin-top:1.4rem;">
-        <p>Acute ischemic stroke requires rapid treatment decisions that are strongly guided by emergency imaging. Admission computed tomography perfusion (CTP) is commonly used to estimate the ischemic <b>core</b> (irreversibly damaged tissue) and the <b>penumbra</b> (hypoperfused but potentially salvageable tissue), while follow-up diffusion-weighted MRI (DWI) defines the final infarct. Existing imaging approaches focus on core–penumbra segmentation or final-infarct prediction, but offer limited insight into how heterogeneous penumbral tissue evolves after treatment.</p>
-        <p>We propose a <b>bi-temporal tissue phenotyping framework</b> that links admission CTP signatures with follow-up DWI-defined tissue outcome using six outcome-aware ROI classes. Admission signatures are characterized using statistical, radiomic, and deep-learning features from mJ-Net and nnU-Net representations. On a local cohort, salvaged and infarcted penumbra showed consistent feature-space separation (∆̃<sub>cos</sub>&nbsp;=&nbsp;0.146, <i>p</i>&nbsp;&lt;&nbsp;0.05), while core tissue showed minimal separation by subsequent fate. The largest separation was between initially non-hypoperfused tissue that later infarcted and healthy contralateral tissue (∆̃<sub>cos</sub>&nbsp;=&nbsp;0.460, <i>p</i>&nbsp;&lt;&nbsp;0.05). Cross-dataset evaluation on <b>ISLES'24</b> showed similar trends, supporting generalizability. These findings suggest that admission CTP contains outcome-associated tissue information <b>beyond conventional core–penumbra delineation</b>.</p>
-      </div>
+  <section>
+    <h2>Results</h2>
+
+    <p>Four region-pair comparisons were evaluated on a local cohort (<i>n</i>&nbsp;=&nbsp;109) and on
+    ISLES&rsquo;24 (<i>n</i>&nbsp;=&nbsp;149), using patient-level representations. The separation index
+    &Delta;&#771;<sub>cos</sub> is the median per-patient gap between within-class and between-class
+    cosine similarity of the CNN embeddings; higher means better separated by final tissue state.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th rowspan="2">Comparison</th>
+            <th class="grp" colspan="2">Local cohort</th>
+            <th class="grp" colspan="2">ISLES&rsquo;24</th>
+          </tr>
+          <tr>
+            <th>mJ-Net</th><th>nnU-Net</th><th>mJ-Net</th><th>nnU-Net</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Test 1 <span class="cmp">&mdash; penumbra, salvaged vs infarcted</span></td>
+            <td>0.146</td><td>0.091</td><td>0.177</td><td>0.140</td>
+          </tr>
+          <tr>
+            <td>Test 2 <span class="cmp">&mdash; core, salvaged vs infarcted</span></td>
+            <td>0.031</td><td>0.038</td><td>0.044</td><td>0.042</td>
+          </tr>
+          <tr>
+            <td>Test 3 <span class="cmp">&mdash; infarcted non-hypoperfused vs infarcted penumbra</span></td>
+            <td>0.127</td><td>0.090</td><td>0.126</td><td>0.094</td>
+          </tr>
+          <tr>
+            <td>Test 4 <span class="cmp">&mdash; infarcted non-hypoperfused vs healthy contralateral</span></td>
+            <td>0.460</td><td>0.193</td><td>0.401</td><td>0.115</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    <p class="tnote">Median &Delta;&#771;<sub>cos</sub>, one-sample Wilcoxon signed-rank test; all
+    entries <i>p</i>&nbsp;&lt;&nbsp;0.05. nnU-Net covers 145 of the 149 ISLES&rsquo;24 cases.</p>
+
+    <p>Penumbra is where admission imaging carries the most information about eventual fate: salvaged
+    and infarcted penumbra separate across all four feature families, with medium-to-large
+    Cliff&rsquo;s <i>d</i> for the baseline and GLCM features. Core tissue does not, consistent with
+    advanced ischemic injury already present at baseline. The largest separation throughout is Test 4,
+    suggesting that tissue outside the admission hypoperfused area but later included in the final
+    infarct already differs from healthy tissue at admission. The same pattern holds on
+    ISLES&rsquo;24 despite differences in centers, acquisition protocols, follow-up interval, and
+    automated rather than manual admission annotations.</p>
+
+    <figure class="wide">
+      <img src="static/images/paper/fig2_tsne_all.png"
+           alt="t-SNE projections of the four feature families across all six bi-temporal ROI classes.">
+      <figcaption><b>Feature spaces.</b> t-SNE projections of FE1&ndash;FE4 across all six bi-temporal
+      ROI classes on the local cohort. Colors denote tissue fate and markers denote ROI classes. Class
+      organization is clearer in the CNN embedding spaces than in the handcrafted feature
+      spaces.</figcaption>
+    </figure>
+
+    <figure class="wide">
+      <img src="static/images/paper/fig4_tsne_mjnet.png"
+           alt="t-SNE projections of mJ-Net embeddings for each of the four region-pair tests.">
+      <figcaption><b>Region-pair tests.</b> t-SNE projections of FE3 (mJ-Net) embeddings for each
+      region-pair test on the local cohort. Colors denote the two ROI classes being
+      compared.</figcaption>
+    </figure>
+
+    <figure class="wide">
+      <img src="static/images/paper/fig3_bubble.png"
+           alt="Bubble plots of median baseline and GLCM feature values per bi-temporal ROI class.">
+      <figcaption><b>Phenotypic gradient.</b> Median baseline (Std, Max, Skewness, Kurtosis) and GLCM
+      (Imc1, Imc2, MCC, Correlation) feature values per bi-temporal ROI class on the local cohort, for
+      LVO (filled, larger) and non-LVO (open, smaller) subgroups; bubble size encodes voxel count. A
+      consistent gradient runs from healthy contralateral brain through salvaged penumbra to infarcted
+      tissue.</figcaption>
+    </figure>
   </section>
 
-  <!-- ===================== HIGHLIGHTS ===================== -->
-  <section class="block-sec">
-    <div class="container-wide">
-      <p class="sec-kicker">Key Contributions</p>
-      <h2 class="sec-title">Highlights</h2>
-      <div class="cards" style="margin-top:1.6rem;">
-        <div class="card-hl">
-          <div class="ic"><i class="fas fa-history"></i></div>
-          <h4>Bi-temporal phenotyping</h4>
-          <p>Links admission CTP (T<sub>1</sub>) to follow-up DWI outcome (T<sub>2</sub>) instead of treating ischemic regions as static, homogeneous targets.</p>
-        </div>
-        <div class="card-hl">
-          <div class="ic"><i class="fas fa-shapes"></i></div>
-          <h4>Six outcome-aware ROIs</h4>
-          <p>Tissue is split by both admission label (core / penumbra / brain) and final fate (salvaged / infarcted), revealing fate-driven heterogeneity.</p>
-        </div>
-        <div class="card-hl">
-          <div class="ic"><i class="fas fa-layer-group"></i></div>
-          <h4>Three feature families</h4>
-          <p>Baseline statistics (BL), GLCM radiomics, and deep CNN embeddings (mJ-Net, nnU-Net) give complementary, model-free and model-based views.</p>
-        </div>
-        <div class="card-hl">
-          <div class="ic"><i class="fas fa-database"></i></div>
-          <h4>Cross-dataset validation</h4>
-          <p>The same tissue-fate pattern holds on the public <b>ISLES'24</b> cohort (n&nbsp;=&nbsp;149) despite different centers, protocols, and annotation pipelines.</p>
-        </div>
-      </div>
-
-      <div class="cards" style="margin-top:1.1rem;">
-        <div class="card-hl has-text-centered">
-          <div class="stat-num">109&nbsp;/&nbsp;149</div>
-          <p>Local cohort (analysis / scanned)</p>
-        </div>
-        <div class="card-hl has-text-centered">
-          <div class="stat-num">∆̃<sub>cos</sub>&nbsp;0.146</div>
-          <p>Penumbra: salvaged vs. infarcted (mJ-Net, Test&nbsp;1)</p>
-        </div>
-        <div class="card-hl has-text-centered">
-          <div class="stat-num">∆̃<sub>cos</sub>&nbsp;0.460</div>
-          <p>Non-hypoperfused infarct vs. healthy (Test&nbsp;4)</p>
-        </div>
-        <div class="card-hl has-text-centered">
-          <div class="stat-num">6</div>
-          <p>Bi-temporal ROI classes</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== ROI CLASSES ===================== -->
-  <section class="block-sec alt-bg">
-    <div class="container-wide">
-      <p class="sec-kicker">Method</p>
-      <h2 class="sec-title">The six bi-temporal ROI classes</h2>
-      <p class="sec-sub">Each class is the intersection of an admission tissue label (T<sub>1</sub>) and its final fate on DWI (T<sub>2</sub>). Green tones = tissue that stayed healthy / was salvaged; red–orange tones = tissue that progressed to final infarct.</p>
-      <div class="roi-legend">
-        <div class="roi-item"><span class="roi-dot" style="background:var(--c-clb)"></span><div><b>ROI<sup>b</sup><sub>CLB</sub></b> — Contralateral healthy brain<span class="sub">healthy → remained healthy</span></div></div>
-        <div class="roi-item"><span class="roi-dot" style="background:var(--c-core-b)"></span><div><b>ROI<sup>b</sup><sub>c</sub></b> — Core, salvaged<span class="sub">core → did not infarct</span></div></div>
-        <div class="roi-item"><span class="roi-dot" style="background:var(--c-pen-b)"></span><div><b>ROI<sup>b</sup><sub>p</sub></b> — Penumbra, salvaged<span class="sub">penumbra → recovered</span></div></div>
-        <div class="roi-item"><span class="roi-dot" style="background:var(--c-core-fi)"></span><div><b>ROI<sup>fi</sup><sub>c</sub></b> — Core, infarcted<span class="sub">core → remained infarcted</span></div></div>
-        <div class="roi-item"><span class="roi-dot" style="background:var(--c-pen-fi)"></span><div><b>ROI<sup>fi</sup><sub>p</sub></b> — Penumbra, infarcted<span class="sub">penumbra → progressed to infarct</span></div></div>
-        <div class="roi-item"><span class="roi-dot" style="background:var(--c-nhb-fi)"></span><div><b>ROI<sup>fi</sup><sub>NHB</sub></b> — Non-hypoperfused, infarcted<span class="sub">non-hypoperfused → later infarcted</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== RESULTS ===================== -->
-  <section class="block-sec" id="results">
-    <div class="container-wide">
-      <p class="sec-kicker">Experiments &amp; Results</p>
-      <h2 class="sec-title">Four region-pair comparisons</h2>
-      <p class="sec-sub">Each test asks whether admission CTP features at T<sub>1</sub> already carry information about subsequent tissue fate at T<sub>2</sub>.</p>
-
-      <div class="tests">
-        <div class="test-card">
-          <span class="tnum">TEST 1</span>
-          <h5>Penumbra fate</h5>
-          <code>ROI<sup>b</sup><sub>p</sub></code> vs <code>ROI<sup>fi</sup><sub>p</sub></code>
-          <p>Does admission signature distinguish penumbra that recovers from penumbra that progresses to infarct? <b>Most clinically interesting.</b></p>
-        </div>
-        <div class="test-card">
-          <span class="tnum">TEST 2</span>
-          <h5>Core fate</h5>
-          <code>ROI<sup>b</sup><sub>c</sub></code> vs <code>ROI<sup>fi</sup><sub>c</sub></code>
-          <p>Does initially core-labeled tissue retain outcome-related differences? Expected to be weak (advanced injury).</p>
-        </div>
-        <div class="test-card">
-          <span class="tnum">TEST 3</span>
-          <h5>Infarct origin</h5>
-          <code>ROI<sup>fi</sup><sub>NHB</sub></code> vs <code>ROI<sup>fi</sup><sub>p</sub></code>
-          <p>Is infarcting tissue outside the hypoperfused area separable from infarcting penumbra at admission?</p>
-        </div>
-        <div class="test-card">
-          <span class="tnum">TEST 4</span>
-          <h5>Hidden vulnerability</h5>
-          <code>ROI<sup>fi</sup><sub>NHB</sub></code> vs <code>ROI<sup>b</sup><sub>CLB</sub></code>
-          <p>Does non-hypoperfused tissue that later infarcts already differ from healthy contralateral brain?</p>
-        </div>
-      </div>
-
-      <!-- TABLE II -->
-      <h3 class="sec-title" style="font-size:1.35rem;text-align:left;margin-bottom:.3rem;">Table II — Region-pair comparisons across feature families</h3>
-      <p class="tbl-cap" style="margin-bottom:.9rem;">FE1/FE2: Mann–Whitney U (FDR, α&nbsp;=&nbsp;0.05) with Cliff's <i>d</i> effect size. FE3/FE4: median ∆̃<sub>cos</sub> (one-sample Wilcoxon). <span class="sig y">✓</span> significant · <span class="sig n">✕</span> not significant. Cell shade encodes effect-size magnitude.</p>
-      <div class="legend-inline">
-        <span class="chip"><span class="sw" style="background:var(--sh-large)"></span>large</span>
-        <span class="chip"><span class="sw" style="background:var(--sh-med)"></span>medium</span>
-        <span class="chip"><span class="sw" style="background:var(--sh-small)"></span>small</span>
-        <span class="chip"><span class="sw" style="background:var(--sh-negl)"></span>negligible</span>
-        <span class="chip"><span class="sw" style="background:var(--sh-rsmall)"></span>n.s. (small)</span>
-        <span class="chip"><span class="sw" style="background:var(--sh-rneg)"></span>n.s. (negl.)</span>
-      </div>
-      <div class="tbl-wrap">
-        <table class="rt">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th class="test">Test 1<br><small>ROI<sup>b</sup><sub>p</sub> · ROI<sup>fi</sup><sub>p</sub></small></th>
-              <th class="test">Test 2<br><small>ROI<sup>b</sup><sub>c</sub> · ROI<sup>fi</sup><sub>c</sub></small></th>
-              <th class="test">Test 3<br><small>ROI<sup>fi</sup><sub>NHB</sub> · ROI<sup>fi</sup><sub>p</sub></small></th>
-              <th class="test">Test 4<br><small>ROI<sup>fi</sup><sub>NHB</sub> · ROI<sup>b</sup><sub>CLB</sub></small></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="cohort" colspan="5">Local cohort (n = 109)</td></tr>
-            <tr><td class="grp" colspan="5">FE1 — Baseline statistics</td></tr>
-            <tr><th>Mean</th><td class="large"><span class="sig y">✓</span> large</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="small"><span class="sig y">✓</span> small</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Std</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Skewness</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Min</th><td class="large"><span class="sig y">✓</span> large</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Max</th><td class="small"><span class="sig y">✓</span> small</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="small"><span class="sig y">✓</span> small</td></tr>
-            <tr><th>Kurtosis</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><td class="grp" colspan="5">FE2 — GLCM radiomics</td></tr>
-            <tr><th>Imc1</th><td class="large"><span class="sig y">✓</span> large</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Imc2</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="small"><span class="sig y">✓</span> small</td><td class="small"><span class="sig y">✓</span> small</td></tr>
-            <tr><th>Correlation</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="small"><span class="sig y">✓</span> small</td><td class="rsmall"><span class="sig n">✕</span> small</td></tr>
-            <tr><th>MCC</th><td class="large"><span class="sig y">✓</span> large</td><td class="rsmall"><span class="sig n">✕</span> small</td><td class="small"><span class="sig y">✓</span> small</td><td class="small"><span class="sig y">✓</span> small</td></tr>
-            <tr><th>∆̃<sub>cos</sub> (FE3, mJ-Net)</th><td class="med bold"><span class="sig y">✓</span> 0.146</td><td class="negl bold"><span class="sig y">✓</span> 0.031</td><td class="med bold"><span class="sig y">✓</span> 0.127</td><td class="large bold"><span class="sig y">✓</span> 0.460</td></tr>
-            <tr><th>∆̃<sub>cos</sub> (FE4, nnU-Net)</th><td class="negl bold"><span class="sig y">✓</span> 0.091</td><td class="negl bold"><span class="sig y">✓</span> 0.038</td><td class="negl bold"><span class="sig y">✓</span> 0.090</td><td class="med bold"><span class="sig y">✓</span> 0.193</td></tr>
-
-            <tr><td class="cohort" colspan="5">ISLES'24 cohort (n = 149)</td></tr>
-            <tr><td class="grp" colspan="5">FE1 — Baseline statistics</td></tr>
-            <tr><th>Mean</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Std</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="med"><span class="sig y">✓</span> med.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Skewness</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Min</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Max</th><td class="small"><span class="sig y">✓</span> small</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="small"><span class="sig y">✓</span> small</td><td class="negl"><span class="sig y">✓</span> negl.</td></tr>
-            <tr><th>Kurtosis</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><td class="grp" colspan="5">FE2 — GLCM radiomics</td></tr>
-            <tr><th>Imc1</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td></tr>
-            <tr><th>Imc2</th><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="small"><span class="sig y">✓</span> small</td></tr>
-            <tr><th>Correlation</th><td class="med"><span class="sig y">✓</span> med.</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="small"><span class="sig y">✓</span> small</td></tr>
-            <tr><th>MCC</th><td class="small"><span class="sig y">✓</span> small</td><td class="rneg"><span class="sig n">✕</span> negl.</td><td class="large"><span class="sig y">✓</span> large</td><td class="rneg"><span class="sig n">✕</span> negl.</td></tr>
-            <tr><th>∆̃<sub>cos</sub> (FE3, mJ-Net)</th><td class="med bold"><span class="sig y">✓</span> 0.177</td><td class="negl bold"><span class="sig y">✓</span> 0.044</td><td class="med bold"><span class="sig y">✓</span> 0.126</td><td class="large bold"><span class="sig y">✓</span> 0.401</td></tr>
-            <tr><th>∆̃<sub>cos</sub> (FE4, nnU-Net)</th><td class="med bold"><span class="sig y">✓</span> 0.140</td><td class="negl bold"><span class="sig y">✓</span> 0.042</td><td class="negl bold"><span class="sig y">✓</span> 0.094</td><td class="med bold"><span class="sig y">✓</span> 0.115</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="tbl-cap"><b>Takeaway.</b> Penumbra (Test 1) and the hidden-vulnerability comparison (Test 4) separate consistently across all feature families and both cohorts, while core fate (Test 2) stays the weakest — consistent with already-advanced ischemic injury at baseline.</p>
-    </div>
-  </section>
-
-  <!-- ===================== STATIC FIGURES ===================== -->
-  <section class="block-sec alt-bg">
-    <div class="container-wide">
-      <p class="sec-kicker">Visual Analysis</p>
-      <h2 class="sec-title">Feature-space structure</h2>
-      <p class="sec-sub">t-SNE projections and bubble plots qualitatively confirm the tissue-fate organization seen in the statistics.</p>
-
-      <div class="columns is-variable is-5">
-        <div class="column is-half">
-          <figure class="fig">
-            <img src="static/images/paper/fig2_tsne_all.png" alt="t-SNE projections of FE1–FE4 across all six ROI classes (local cohort)">
-            <figcaption><b>Fig. 2 — t-SNE of FE1–FE4</b> across all six bi-temporal ROI classes (local cohort). Colors denote tissue fate, markers denote ROI classes. CNN embeddings (bottom row) show clearer class organization than handcrafted features.</figcaption>
-          </figure>
-        </div>
-        <div class="column is-half">
-          <figure class="fig">
-            <img src="static/images/paper/fig4_tsne_mjnet.png" alt="t-SNE of mJ-Net embeddings for Tests 1–4 (local cohort)">
-            <figcaption><b>Fig. 4 — mJ-Net (FE3) t-SNE per region-pair test.</b> Test 1 (penumbra fate), Test 2 (core fate), Test 3 (infarct origin), Test 4 (hidden vulnerability). Test 4 shows the strongest visual separation.</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <figure class="fig">
-        <img src="static/images/paper/fig3_bubble.png" alt="Bubble plots of median BL and GLCM features per ROI class for LVO and non-LVO subgroups">
-        <figcaption><b>Fig. 3 — Bubble plots of median BL and GLCM features</b> per bi-temporal ROI class (local cohort), for LVO (filled, larger) and non-LVO (open, smaller) subgroups; bubble size encodes voxel count. A consistent phenotypic gradient runs from healthy (ROI<sup>b</sup><sub>CLB</sub>) through salvaged penumbra (ROI<sup>b</sup><sub>p</sub>) to infarcted tissue.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ===================== INTERACTIVE ===================== -->
-  <section class="block-sec" id="interactive">
-    <div class="container-wide">
-      <p class="sec-kicker">Explore the Data</p>
-      <h2 class="sec-title">Interactive t-SNE embeddings — ISLES'24</h2>
-      <p class="sec-sub">Live Plotly projections of the admission-CTP feature space on the public ISLES'24 cohort. <b>Hover</b> points for details, <b>drag</b> to zoom, <b>double-click</b> to reset, and toggle ROI classes in the legend.</p>
-
-      <div class="tabs-bar">
-        <button class="tab-btn active" data-pane="p1">mJ-Net · slice-level</button>
-        <button class="tab-btn" data-pane="p2">mJ-Net · patient-level</button>
-        <button class="tab-btn" data-pane="p3">Baseline · slice-level</button>
-        <button class="tab-btn" data-pane="p4">Baseline · patient-level</button>
-      </div>
-
-      <div class="pane active" id="p1">
-        <h4>mJ-Net (FE3) deep embeddings — slice-level</h4>
-        <p class="desc">Slice-aggregated CNN embeddings across the six ROI classes on ISLES'24.</p>
-        <div class="iframe-shell"><iframe data-src="static/interactive/mjnet_tsne_slice_isles.html" loading="lazy" title="mJ-Net slice-level t-SNE"></iframe></div>
-      </div>
-      <div class="pane" id="p2">
-        <h4>mJ-Net (FE3) deep embeddings — patient-level</h4>
-        <p class="desc">Patient-aggregated mJ-Net embeddings on ISLES'24.</p>
-        <div class="iframe-shell"><iframe data-src="static/interactive/mjnet_tsne_patient_isles.html" loading="lazy" title="mJ-Net patient-level t-SNE"></iframe></div>
-      </div>
-      <div class="pane" id="p3">
-        <h4>Baseline statistical features (FE1) — slice-level</h4>
-        <p class="desc">Model-free, handcrafted first-order statistics on ISLES'24.</p>
-        <div class="iframe-shell"><iframe data-src="static/interactive/bl_tsne_slice_isles.html" loading="lazy" title="Baseline slice-level t-SNE"></iframe></div>
-      </div>
-      <div class="pane" id="p4">
-        <h4>Baseline statistical features (FE1) — patient-level</h4>
-        <p class="desc">Patient-aggregated baseline statistics on ISLES'24.</p>
-        <div class="iframe-shell"><iframe data-src="static/interactive/bl_tsne_patient_isles.html" loading="lazy" title="Baseline patient-level t-SNE"></iframe></div>
-      </div>
-      <p class="iframe-hint">Interactive figures are rendered with Plotly · best viewed on a wider screen.</p>
-    </div>
-  </section>
-
-  <!-- ===================== ABLATION + SUBGROUP ===================== -->
-  <section class="block-sec alt-bg">
-    <div class="container-wide">
-      <p class="sec-kicker">Robustness</p>
-      <h2 class="sec-title">Ablation &amp; subgroup analyses</h2>
-
-      <div class="columns is-variable is-5" style="margin-top:1.2rem;">
-        <div class="column is-half">
-          <h3 class="sec-title" style="font-size:1.2rem;text-align:left;">Table III — Normalization &amp; pooling (∆̃<sub>cos</sub>)</h3>
-          <p class="tbl-cap" style="margin:0 0 .7rem;">Local cohort, all entries significant (<i>p</i>&nbsp;&lt;&nbsp;0.05). <b>Bold</b> = highest per test within model.</p>
-          <div class="tbl-wrap">
-            <table class="rt">
-              <thead><tr><th>Model</th><th>Norm.</th><th>Aggr.</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th></tr></thead>
-              <tbody>
-                <tr><th rowspan="6" style="vertical-align:middle">mJ-Net</th><td>None</td><td>Mean</td><td>0.068</td><td>0.018</td><td>0.209</td><td>0.181</td></tr>
-                <tr><td>None</td><td>Median</td><td>0.091</td><td>0.023</td><td class="bold">0.213</td><td>0.215</td></tr>
-                <tr><td>None</td><td>Max</td><td>0.033</td><td>0.015</td><td>0.085</td><td>0.119</td></tr>
-                <tr><td>Z-score</td><td>Mean</td><td>0.098</td><td>0.029</td><td>0.196</td><td>0.264</td></tr>
-                <tr><td>Z-score</td><td>Median</td><td>0.114</td><td class="bold">0.036</td><td>0.200</td><td>0.290</td></tr>
-                <tr><td>Z-score</td><td>Max</td><td class="bold">0.146</td><td>0.031</td><td>0.127</td><td class="bold">0.460</td></tr>
-                <tr><th rowspan="6" style="vertical-align:middle">nnU-Net</th><td>None</td><td>Mean</td><td>0.019</td><td>0.009</td><td>0.061</td><td>0.085</td></tr>
-                <tr><td>None</td><td>Median</td><td>0.023</td><td>0.011</td><td>0.074</td><td>0.099</td></tr>
-                <tr><td>None</td><td>Max</td><td>0.011</td><td>0.004</td><td>0.024</td><td>0.051</td></tr>
-                <tr><td>Z-score</td><td>Mean</td><td>0.066</td><td>0.029</td><td class="bold">0.140</td><td class="bold">0.270</td></tr>
-                <tr><td>Z-score</td><td>Median</td><td>0.071</td><td>0.028</td><td>0.137</td><td>0.259</td></tr>
-                <tr><td>Z-score</td><td>Max</td><td class="bold">0.091</td><td class="bold">0.038</td><td>0.090</td><td>0.193</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="tbl-cap">Z-score normalization generally improves separation; Max&nbsp;+&nbsp;Z-score gives the strongest result on the primary penumbra test (Test 1) and is used for the reported CNN results.</p>
-        </div>
-
-        <div class="column is-half">
-          <h3 class="sec-title" style="font-size:1.2rem;text-align:left;">Table IV — Subgroups (mJ-Net ∆̃<sub>cos</sub>)</h3>
-          <p class="tbl-cap" style="margin:0 0 .7rem;">Local cohort. All entries significant (<span class="sig y">✓</span>).</p>
-          <div class="tbl-wrap">
-            <table class="rt">
-              <thead><tr><th>Subgroup</th><th>n</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th></tr></thead>
-              <tbody>
-                <tr><td class="grp" colspan="6">Stroke hemisphere</td></tr>
-                <tr><th>Left</th><td>53</td><td>0.133</td><td>0.028</td><td>0.124</td><td>0.466</td></tr>
-                <tr><th>Right</th><td>51</td><td>0.155</td><td>0.029</td><td>0.143</td><td>0.458</td></tr>
-                <tr><td class="grp" colspan="6">Onset-to-CT time (median 1.22 h)</td></tr>
-                <tr><th>&lt; 1.22 h</th><td>51</td><td>0.163</td><td>0.049</td><td>0.137</td><td>0.453</td></tr>
-                <tr><th>≥ 1.22 h</th><td>54</td><td>0.137</td><td>0.023</td><td>0.122</td><td>0.448</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="tbl-cap">Separation is stable across left/right hemisphere and onset-to-CT timing, indicating the pattern is not driven by lateralization or imaging delay.</p>
-
-          <div class="card-hl" style="margin-top:1.4rem;">
-            <div class="ic"><i class="fas fa-flask"></i></div>
-            <h4>Cohorts at a glance</h4>
-            <p>Local: 109 / 149 patients, age 71.9&nbsp;±&nbsp;14.4, admission NIHSS 9.4&nbsp;±&nbsp;8.3, manual T<sub>1</sub>/T<sub>2</sub> annotation. ISLES'24: 149 patients, age 71.1&nbsp;±&nbsp;14.7, NIHSS 12.0&nbsp;±&nbsp;6.3, automated nnU-Net T<sub>1</sub> + hybrid T<sub>2</sub> masks. Both CT&nbsp;→&nbsp;MRI, 1&nbsp;s CTP temporal resolution.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== BIBTEX ===================== -->
-  <section class="block-sec">
-    <div class="container-narrow">
-      <div class="bib-head">
-        <h2 class="sec-title" style="text-align:left;margin:0;">BibTeX</h2>
-        <button class="copy-btn" id="copyBib"><i class="fas fa-copy"></i> <span>Copy</span></button>
-      </div>
-      <pre class="bib"><code id="bibtex">@inproceedings{rahman2026bitemporal,
+  <section>
+    <h2>BibTeX</h2>
+<pre>@inproceedings{rahman2026bitemporal,
   title     = {Bi-temporal Image-driven Acute Stroke Evolution Analysis},
   author    = {Rahman, Md Sazidur and Engan, Kjersti and
-               Kurz, Kathinka D{\ae}hli and Khanmohammadi, Mahdieh},
-  booktitle = {IEEE International Conference on Biomedical and Health
-               Informatics (BHI)},
+               D{\ae}hli Kurz, Kathinka and Khanmohammadi, Mahdieh},
+  booktitle = {IEEE International Conference on Biomedical and Health Informatics (BHI)},
   year      = {2026},
   note      = {Under review}
-}</code></pre>
-    </div>
+}</pre>
   </section>
 
-  <footer class="ft">
-    <div class="container-narrow">
-      <p style="margin-bottom:.5rem;"><b>Bi-temporal Image-driven Acute Stroke Evolution Analysis</b></p>
-      <p>University of Stavanger &amp; Stavanger University Hospital · IEEE BHI 2026 (under review)</p>
-      <p style="margin-top:.9rem;font-size:.8rem;opacity:.8;">Page built from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>. Private preview — please do not redistribute.</p>
-    </div>
+  <footer>
+    This page is private and unlisted while the paper is under review.
   </footer>
 
-  <!-- Lightbox -->
-  <div id="lightbox" onclick="this.classList.remove('open')"><img id="lightbox-img" src="" alt=""></div>
-
-  <script>
-    // Lazy-load iframes only when their tab is first shown (saves ~20 MB upfront)
-    function loadIframe(pane){
-      var f = pane.querySelector('iframe');
-      if(f && !f.src && f.dataset.src){ f.src = f.dataset.src; }
-    }
-    var firstPane = document.getElementById('p1');
-    if(firstPane) loadIframe(firstPane);
-
-    document.querySelectorAll('.tab-btn').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-        document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
-        btn.classList.add('active');
-        var pane = document.getElementById(btn.dataset.pane);
-        pane.classList.add('active');
-        loadIframe(pane);
-      });
-    });
-
-    // Lightbox for figures
-    document.querySelectorAll('figure.fig img').forEach(function(img){
-      img.addEventListener('click', function(){
-        document.getElementById('lightbox-img').src = img.src;
-        document.getElementById('lightbox').classList.add('open');
-      });
-    });
-
-    // Copy BibTeX
-    document.getElementById('copyBib').addEventListener('click', function(){
-      var txt = document.getElementById('bibtex').innerText;
-      var self = this;
-      navigator.clipboard.writeText(txt).then(function(){
-        var s = self.querySelector('span'); var old = s.innerText;
-        s.innerText = 'Copied!'; setTimeout(function(){ s.innerText = old; }, 1600);
-      });
-    });
-
-    // Scroll-to-top
-    var st = document.getElementById('scrollTop');
-    window.addEventListener('scroll', function(){
-      if(window.scrollY > 600) st.classList.add('show'); else st.classList.remove('show');
-    });
-  </script>
+</main>
 </body>
 </html>
