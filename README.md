@@ -62,13 +62,15 @@ cd 03_analysis && python run_table3_region_pairs.py --config ../demo/data/config
 
 ### Page sections
 
-The page is deliberately plain: one column, no colour, no scripts.
+One column, greyscale only, no scripts. Alternating full-width bands give the
+page its rhythm: white behind the header, the teaser figure and the results,
+a light grey (`#f7f7f7`) behind the abstract and the BibTeX.
 
-1. Title, authors, and the Paper / Code links
-2. Framework overview (Fig. 1)
-3. Abstract
-4. Results - the four region-pair comparisons, plus Figs. 2-4
-5. BibTeX
+- Title, authors, and the Paper / Code links
+- Framework overview (Fig. 1)
+- 01 - Abstract
+- 02 - Results, the four region-pair comparisons plus Figs. 2-4
+- 03 - BibTeX
 
 Run it locally with:
 
