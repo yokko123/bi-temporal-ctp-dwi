@@ -50,17 +50,19 @@ static/images/favicon.ico
 ```
 
 One column, greyscale only, no scripts and no external CSS or JS beyond the
-Inter webfont. Alternating full-width bands give the page its rhythm: white
-behind the header, the teaser figure and the results, a light grey (`#f7f7f7`)
-behind the abstract and the BibTeX.
+Inter webfont. Alternating full-width bands give the page its rhythm, and each
+section carries a number and a rule.
 
 Sections:
 
-- Title, authors, and the Paper / Code links
-- Framework overview (Fig. 1)
-- 01 — Abstract
-- 02 — Results, the four region-pair comparisons plus Figs. 2–4
-- 03 — BibTeX
+- Title, authors, and the Paper / Code buttons
+- 01 — Abstract, closing on a three-number summary strip
+- 02 — Method, the six ROI classes and the framework figure (Fig. 1)
+- 03 — Results, the four region-pair comparisons plus Figs. 2–4
+- 04 — BibTeX
+
+The six ROI classes are listed with a small square marker rather than a colour
+key: hollow means the tissue survived, filled means it went on to infarct.
 
 Run it locally with:
 
