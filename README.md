@@ -1,9 +1,12 @@
-# Bi-temporal Image-driven Acute Stroke Evolution Analysis
+# Bi-temporal Image-driven Acute Stroke Evolution Analysis — project page
 
-Project page and code for the IEEE BHI 2026 submission
+Project page for the IEEE BHI 2026 submission
 
 > **Bi-temporal Image-driven Acute Stroke Evolution Analysis**
 > Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi
+> University of Stavanger · Stavanger University Hospital
+
+**Code:** https://github.com/yokko123/bi-temporal-ctp-dwi-code
 
 > ⚠️ **Private / unlisted.** The paper is under review, so this repository and
 > the page are kept private. The page sets `robots: noindex, nofollow`.
@@ -18,8 +21,7 @@ tissue with similar admission appearance goes on to recover or infarct.
 
 This work registers the two time points and intersects their labels into six
 outcome-aware ROI classes, then asks whether admission CTP already separates
-tissue by its eventual fate, using statistical, radiomic and deep-learning
-feature families.
+tissue by its eventual fate.
 
 | Class | Paper | Admission (T₁) | Outcome (T₂) |
 |---|---|---|---|
@@ -36,41 +38,29 @@ fate, and the largest separation is between initially non-hypoperfused tissue
 that later infarcted and healthy contralateral brain (∆̃<sub>cos</sub> = 0.460).
 The same pattern holds on ISLES'24.
 
-## Repository layout
+## This repository
+
+Page only. The preprocessing, feature-extraction and analysis code lives in
+[bi-temporal-ctp-dwi-code](https://github.com/yokko123/bi-temporal-ctp-dwi-code).
 
 ```
-index.html          the project page (self-contained; styles inlined)
-static/             paper figures + interactive Plotly t-SNE figures
-code/               the implementation - see code/README.md
+index.html                    the whole page; styles are inlined
+static/images/paper/          the four paper figures
+static/images/favicon.ico
 ```
 
-### Code
+One column, greyscale only, no scripts and no external CSS or JS beyond the
+Inter webfont. Alternating full-width bands give the page its rhythm: white
+behind the header, the teaser figure and the results, a light grey (`#f7f7f7`)
+behind the abstract and the BibTeX.
 
-| Stage | Contents |
-|---|---|
-| [`code/01_preprocessing/`](code/01_preprocessing) | DICOM → NIfTI, CTP motion correction, CTP/DWI → NCCT registration, SynthStrip, and the six bi-temporal ROI classes |
-| [`code/02_features/`](code/02_features) | FE1 baseline statistics, FE2 GLCM radiomics, FE3 mJ-Net embeddings, FE4 nnU-Net embeddings |
-| [`code/03_analysis/`](code/03_analysis) | region-pair tests (Table III), ablation (Table IV), subgroups (Table V), figures |
-| [`code/demo/`](code/demo) | synthetic cohort so the analysis runs without any data |
-
-```bash
-cd code
-conda env create -f environment.yml && conda activate bitemporal
-python demo/make_synthetic_cohort.py --out-dir demo/data
-cd 03_analysis && python run_table3_region_pairs.py --config ../demo/data/config.yaml
-```
-
-### Page sections
-
-One column, greyscale only, no scripts. Alternating full-width bands give the
-page its rhythm: white behind the header, the teaser figure and the results,
-a light grey (`#f7f7f7`) behind the abstract and the BibTeX.
+Sections:
 
 - Title, authors, and the Paper / Code links
 - Framework overview (Fig. 1)
-- 01 - Abstract
-- 02 - Results, the four region-pair comparisons plus Figs. 2-4
-- 03 - BibTeX
+- 01 — Abstract
+- 02 — Results, the four region-pair comparisons plus Figs. 2–4
+- 03 — BibTeX
 
 Run it locally with:
 
@@ -78,26 +68,14 @@ Run it locally with:
 python3 -m http.server 8000     # then open http://localhost:8000
 ```
 
-`index.html` is self-contained apart from the figures under
-`static/images/paper/` and the Inter webfont. Figures were re-extracted from the
-manuscript PDF composited onto white; the earlier copies had their alpha
-flattened onto black, which hid the panel titles and legends.
+### Figures
 
-`static/css/`, `static/js/` and `static/interactive/` are left over from the
-previous Bulma-based page and are no longer referenced.
+Re-extracted from the manuscript PDF and composited onto white. The originals
+had their alpha channel flattened onto black, which left the panel titles and
+legends black-on-black and unreadable.
 
-## Data
-
-No patient data is in this repository.
-
-* The **local cohort** (n = 109 analysed, of 149) is retrospective hospital data
-  and cannot be shared.
-* **ISLES'24** (n = 149) is public:
-  [isles-24.grand-challenge.org](https://isles-24.grand-challenge.org/)
-
-Stages 01 and 02 read data roots from environment variables; stage 03 reads
-paths from a YAML config. Both default to `/path/to/...` placeholders, and
-`code/README.md` lists them.
+The `<img>` URLs carry a `?v=` version. Bump it whenever you replace a figure
+in place, otherwise browsers keep serving the copy they already cached.
 
 ## Going public later
 
@@ -109,10 +87,9 @@ When the paper is accepted:
   link (the **Code** link is already live),
 - change `<meta name="robots" ...>` to `index, follow`,
 - drop the footer line about the page being private,
-- make the repository public and enable GitHub Pages.
+- make both repositories public and enable GitHub Pages.
 
 ## License
 
-[MIT](LICENSE) for the code in this repository. Third-party components
-(mJ-Net, nnU-Net, SynthStrip/SynthSeg, the Academic Project Page Template)
-remain under their own licenses; see the LICENSE file.
+[MIT](LICENSE) for the page itself. The figures are from the manuscript; see the
+LICENSE file.

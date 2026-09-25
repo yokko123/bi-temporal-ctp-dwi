@@ -23,14 +23,9 @@ SOFTWARE.
 
 ---
 
-Third-party components, under their own licences:
+The four figures under `static/images/paper/` are from the manuscript and are
+covered by whatever terms apply to the published paper, not by the MIT licence
+above.
 
-* `code/02_features/fe3_mjnet/` is a PyTorch reimplementation derived from
-  mJ-Net (Tomasetti et al., Biomedical Data Analysis Laboratory, University of
-  Stavanger), https://github.com/Biomedical-Data-Analysis-Laboratory/mJ-Net
-* `code/02_features/fe4_nnunet/` builds on nnU-Net v2 (Isensee et al.),
-  https://github.com/MIC-DKFZ/nnUNet - Apache-2.0
-* `code/01_preprocessing/` uses SynthStrip and SynthSeg (FreeSurfer) as
-  external tools.
-* `static/css/` and `static/js/` come from the Academic Project Page Template,
-  https://github.com/eliahuhorwitz/Academic-project-page-template
+The analysis and preprocessing code lives in a separate repository:
+https://github.com/yokko123/bi-temporal-ctp-dwi-code
