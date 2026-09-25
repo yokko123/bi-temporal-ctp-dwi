@@ -46,7 +46,9 @@ Page only. The preprocessing, feature-extraction and analysis code lives in
 ```
 index.html                    the whole page; styles are inlined
 static/images/paper/          the four paper figures
-static/images/favicon.ico
+static/images/favicon.svg     tab mark: the T1 n T2 intersection
+static/images/favicon.ico     fallback for browsers without SVG icons
+static/images/apple-touch-icon.png
 ```
 
 One column, greyscale only, no scripts and no external CSS or JS beyond the
@@ -56,7 +58,7 @@ section carries a number and a rule.
 Sections:
 
 - Title, authors, and the Paper / Code buttons
-- 01 — Abstract, closing on a three-number summary strip
+- 01 — Abstract
 - 02 — Method, the six ROI classes and the framework figure (Fig. 1)
 - 03 — Results, the four region-pair comparisons plus Figs. 2–4
 - 04 — BibTeX

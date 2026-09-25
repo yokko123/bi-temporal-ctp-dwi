@@ -6,7 +6,9 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Bi-temporal Image-driven Acute Stroke Evolution Analysis</title>
 <meta name="description" content="Linking admission CT perfusion signatures to follow-up DWI-defined tissue outcome through six outcome-aware ROI classes.">
-<link rel="icon" href="static/images/favicon.ico">
+<link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="static/images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -46,7 +48,6 @@
   }
   .authors{margin:0 0 .4rem;font-size:1.05rem;font-weight:500;color:var(--ink);}
   .affil{margin:0;color:var(--muted);font-size:.93rem;}
-  .meta{margin:.3rem 0 0;color:var(--muted);font-size:.83rem;}
   .links{
     margin:2rem 0 0;display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;
   }
@@ -73,19 +74,6 @@
   p{margin:0 0 1.1rem;}
   section p:last-child{margin-bottom:0;}
   .abstract p{text-align:justify;hyphens:auto;}
-
-  /* ---------------- key numbers ---------------- */
-  .stats{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    margin:2.2rem 0 0;border:1px solid var(--rule);background:#fff;
-  }
-  .stats div{padding:1.15rem 1rem;text-align:center;border-left:1px solid var(--rule);}
-  .stats div:first-child{border-left:0;}
-  .stats b{
-    display:block;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;
-    color:var(--ink);line-height:1.2;font-variant-numeric:tabular-nums;
-  }
-  .stats span{display:block;margin-top:.2rem;font-size:.78rem;color:var(--muted);line-height:1.45;}
 
   /* ---------------- ROI class grid ---------------- */
   .classes{
@@ -145,9 +133,6 @@
     body{font-size:16px;}
     .band{padding:2.8rem 0;}
     header.band{padding:3.2rem 0 2rem;}
-    .stats{grid-template-columns:1fr;}
-    .stats div{border-left:0;border-top:1px solid var(--rule);}
-    .stats div:first-child{border-top:0;}
     .classes{grid-template-columns:1fr;}
     .sec-head{flex-direction:column;gap:.25rem;align-items:flex-start;}
     .wide{width:100%;margin-left:0;}
@@ -161,13 +146,12 @@
       <p class="eyebrow">IEEE BHI 2026 &middot; Under review</p>
       <h1>Bi-temporal Image-driven<br>Acute Stroke Evolution Analysis</h1>
       <p class="authors">
-        Md Sazidur Rahman<sup>*</sup>,
-        Kjersti Engan<sup>*</sup>,
-        Kathinka Dæhli Kurz<sup>*</sup>,
+        Md Sazidur Rahman,
+        Kjersti Engan,
+        Kathinka Dæhli Kurz,
         Mahdieh Khanmohammadi
       </p>
       <p class="affil">University of Stavanger &middot; Stavanger University Hospital</p>
-      <p class="meta"><sup>*</sup> Equal contribution</p>
       <p class="links">
         <span>Paper (on publication)</span>
         <a href="https://github.com/yokko123/bi-temporal-ctp-dwi-code">Code</a>
@@ -198,12 +182,6 @@
       evaluation on ISLES&rsquo;24 showed similar trends, supporting the consistency of the observed
       feature-space patterns across cohorts. These findings suggest that admission CTP contains
       outcome-associated tissue information beyond conventional core-penumbra delineation.</p>
-
-      <div class="stats">
-        <div><b>109 / 149</b><span>local cohort<br>analysed / scanned</span></div>
-        <div><b>0.146</b><span>&Delta;&#771;<sub>cos</sub>, penumbra<br>salvaged vs infarcted</span></div>
-        <div><b>0.460</b><span>&Delta;&#771;<sub>cos</sub>, largest<br>separation observed</span></div>
-      </div>
     </div>
   </section>
 
