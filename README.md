@@ -1,6 +1,6 @@
 # Bi-temporal Image-driven Acute Stroke Evolution Analysis — project page
 
-Project page for the IEEE BHI 2026 submission
+Project page for
 
 > **Bi-temporal Image-driven Acute Stroke Evolution Analysis**
 > Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi
@@ -8,9 +8,8 @@ Project page for the IEEE BHI 2026 submission
 
 **Code:** https://github.com/yokko123/bi-temporal-ctp-dwi-code
 
-> ⚠️ **Private / unlisted.** The paper is under review, so this repository and
-> the page are kept private. The page sets `robots: noindex, nofollow`.
-> See [Going public later](#going-public-later).
+**Accepted at IEEE BHI 2026.** The paper is not yet on IEEE Xplore, so the
+Paper button is still a placeholder; see [Remaining steps](#remaining-steps).
 
 ## What the paper does
 
@@ -81,17 +80,26 @@ legends black-on-black and unreadable.
 The `<img>` URLs carry a `?v=` version. Bump it whenever you replace a figure
 in place, otherwise browsers keep serving the copy they already cached.
 
-## Going public later
+## Remaining steps
 
-When the paper is accepted:
+Done on acceptance: `robots` is now `index, follow`, the under-review notices
+and the private-preview footer are gone, and the BibTeX carries the camera-ready
+venue.
 
-- update `note = {Under review}` in the BibTeX and the "Under review" line under
-  the authors in `index.html`,
-- replace the `Paper (on publication)` placeholder with the PDF / arXiv / DOI
-  link (the **Code** link is already live),
-- change `<meta name="robots" ...>` to `index, follow`,
-- drop the footer line about the page being private,
-- make both repositories public and enable GitHub Pages.
+Still open:
+
+- **Make both repositories public** and enable GitHub Pages
+  (Settings → Pages → Source: `master` / root).
+- **When the paper appears on IEEE Xplore**, replace the
+  `Paper (IEEE Xplore, soon)` placeholder in `index.html` with a live link, and
+  add the `doi` plus page numbers to the BibTeX and to `CITATION.cff`, dropping
+  `note = {In press}` / `notes: In press`.
+- **Check the venue string** against the camera-ready instructions. The BibTeX
+  uses `2026 IEEE-EMBS International Conference on Biomedical and Health
+  Informatics (BHI)`.
+- **Check the figures** still match the camera-ready. They were extracted from
+  the submitted PDF; if any changed during revision, re-extract and bump the
+  `?v=` on the `<img>` URLs.
 
 ## License
 

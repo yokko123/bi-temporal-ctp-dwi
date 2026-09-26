@@ -23,9 +23,9 @@ SOFTWARE.
 
 ---
 
-The four figures under `static/images/paper/` are from the manuscript and are
-covered by whatever terms apply to the published paper, not by the MIT licence
-above.
+The four figures under `static/images/paper/` are from the manuscript, which is
+published by the IEEE. They are covered by the IEEE copyright transfer for that
+paper, not by the MIT licence above.
 
 The analysis and preprocessing code lives in a separate repository:
 https://github.com/yokko123/bi-temporal-ctp-dwi-code
