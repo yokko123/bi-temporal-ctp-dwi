@@ -46,18 +46,17 @@ Page only. The preprocessing, feature-extraction and analysis code lives in
 
 ```
 index.html                    the whole page; styles are inlined
-static/images/paper/          the framework and bubble-plot figures
-static/interactive/           the two t-SNE figures, as Plotly pages
+static/images/paper/          the four paper figures
 static/images/favicon.svg     tab mark: the T1 n T2 intersection
 static/images/favicon.ico     fallback for browsers without SVG icons
 static/images/apple-touch-icon.png
 ```
 
-One column. Inter for text, Source Serif 4 for the display title, and a single
-teal accent (`#0d7684`) on section numbers, links, buttons and the table rules;
-everything else is greyscale. Full-width bands alternate white and `#f6f8f8`
-end to end, and a dark variant follows `prefers-color-scheme`. The only script
-on the page is Plotly, loaded from a CDN inside the two t-SNE iframes.
+One column, no scripts, and no external CSS or JS beyond the two webfonts.
+Inter for text, Source Serif 4 for the display title, and a single teal accent
+(`#0d7684`) on section numbers, links, buttons and the table rules; everything
+else is greyscale. Full-width bands alternate white and `#f6f8f8` end to end,
+and a dark variant follows `prefers-color-scheme`.
 
 The figures are drawn on white and contain medical imagery that must not be
 inverted, so in dark mode they stay white plates. They sit on a tinted band with
@@ -71,8 +70,7 @@ Sections:
 - Framework figure as the hero
 - 01 — Abstract
 - 02 — Method, the six ROI classes
-- 03 — Results, all three result tables, the two interactive t-SNE figures and
-  the bubble plot
+- 03 — Results, all three result tables and Figs. 2–4
 - 04 — BibTeX
 
 The six ROI classes are listed with a small square marker rather than a colour
@@ -86,22 +84,14 @@ python3 -m http.server 8000     # then open http://localhost:8000
 
 ### Figures
 
-The framework and bubble-plot figures were re-extracted from the manuscript PDF
-and composited onto white; the originals had their alpha channel flattened onto
+They were re-extracted from the manuscript PDF and composited onto white; the
+originals had their alpha channel flattened onto
 black, which left the panel titles and legends unreadable.
 
-Fig. 2 is coloured by tissue fate with marker shape per class; Fig. 4 uses the
-six-class palette from the Fig. 1 legend, matching the paper.
-
-The two t-SNE figures are interactive Plotly pages rather than the paper's PNGs,
-regenerated from the cohort feature tables with the same projection recipe as
-`bitemporal.figures.tsne_embedding` in the code repository. They carry **no
-patient identifiers**: hover text shows only the ROI class, since this page is
-public. Coordinates are stored as base64 typed arrays, so both files together
-are under 0.5 MB.
-
-Regenerate them with the script kept alongside the analysis code; they are not
-rebuilt by anything on this page.
+All four figures come from the manuscript PDF. The t-SNE panels were briefly
+replaced by regenerated interactive Plotly versions; those were reverted,
+because t-SNE is stochastic and a re-run does not reproduce the published
+projections.
 
 The `<img>` URLs carry a `?v=` version. Bump it whenever you replace a figure
 in place, otherwise browsers keep serving the copy they already cached.

@@ -85,11 +85,6 @@
     border-bottom:1px solid var(--rule);padding:2.8rem 0 2.4rem;}
   .hero{max-width:1080px;margin:0 auto;padding:0 20px;}
   .hero figure{margin:0;}
-  .frame{border:1px solid var(--plate-edge);border-radius:4px;background:var(--card);
-    box-shadow:var(--plate-shadow);overflow:hidden;}
-  .frame iframe{display:block;width:100%;border:0;}
-  .ix{font-size:.78rem;color:var(--muted);margin:.5rem 0 0;}
-  .ix b{color:var(--accent);font-weight:600;}
 
   /* tables */
   .tw{overflow-x:auto;margin:1.4rem 0 .7rem;-webkit-overflow-scrolling:touch;}
@@ -246,26 +241,21 @@
       ISLES&rsquo;24 despite differences in centers, acquisition protocols, follow-up interval, and
       automated rather than manual admission annotations.</p>
 
-      <p class="sub-head">Feature spaces &middot; interactive</p>
-      <div class="frame wide">
-        <iframe src="static/interactive/fig2_tsne_families.html" loading="lazy" height="780"
-                title="Interactive t-SNE of FE1-FE4 across the six bi-temporal ROI classes"></iframe>
-      </div>
-      <p class="ix"><b>Drag</b> to zoom, <b>double-click</b> to reset, click a legend entry to toggle a
-      class.</p>
-      <figcaption style="margin-top:.5rem"><b>t-SNE of FE1&ndash;FE4</b> across all six bi-temporal ROI
-      classes on the SUH cohort, slice level. Teal marks tissue that survived, red tissue that went on
-      to infarct; marker shape denotes the admission class. Class organization is clearer in the CNN
-      embedding spaces than in the handcrafted ones.</figcaption>
+      <figure class="wide">
+        <img src="static/images/paper/fig2_tsne_all.png?v=3"
+             alt="t-SNE projections of FE1-FE4 across all six bi-temporal ROI classes.">
+        <figcaption><b>Feature spaces.</b> t-SNE projections of FE1&ndash;FE4 across all six
+        bi-temporal ROI classes on the SUH cohort. Colors denote tissue fate and markers denote ROI
+        classes. Class organization is clearer in the CNN embedding spaces than in the handcrafted
+        feature spaces.</figcaption>
+      </figure>
 
-      <div class="frame wide" style="margin-top:2.4rem">
-        <iframe src="static/interactive/fig4_tsne_tests.html" loading="lazy" height="800"
-                title="Interactive t-SNE of mJ-Net embeddings for each region-pair test"></iframe>
-      </div>
-      <figcaption style="margin-top:.8rem"><b>t-SNE of FE3 (mJ-Net) embeddings</b> for each region-pair
-      test on the SUH cohort. Each panel shows only the two classes being compared, in the six-class
-      palette of Fig. 1: salvaged penumbra mint, infarcted penumbra orange, salvaged core blue,
-      infarcted core red, contralateral healthy green, infarcted non-hypoperfused yellow.</figcaption>
+      <figure class="wide">
+        <img src="static/images/paper/fig4_tsne_mjnet.png?v=3"
+             alt="t-SNE projections of mJ-Net embeddings for each of the four region-pair tests.">
+        <figcaption><b>Region-pair tests.</b> t-SNE projections of FE3 (mJ-Net) embeddings for each
+        region-pair test on the SUH cohort. Colors denote the two ROI classes being compared.</figcaption>
+      </figure>
 
       <figure class="wide">
         <img src="static/images/paper/fig3_bubble.png?v=2"
