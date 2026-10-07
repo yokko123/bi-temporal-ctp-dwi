@@ -55,9 +55,15 @@ static/images/apple-touch-icon.png
 
 One column. Inter for text, Source Serif 4 for the display title, and a single
 teal accent (`#0d7684`) on section numbers, links, buttons and the table rules;
-everything else is greyscale. Alternating full-width bands give the page its
-rhythm, and a dark variant follows `prefers-color-scheme`. The only script on
-the page is Plotly, loaded from a CDN inside the two t-SNE iframes.
+everything else is greyscale. Full-width bands alternate white and `#f6f8f8`
+end to end, and a dark variant follows `prefers-color-scheme`. The only script
+on the page is Plotly, loaded from a CDN inside the two t-SNE iframes.
+
+The figures are drawn on white and contain medical imagery that must not be
+inverted, so in dark mode they stay white plates. They sit on a tinted band with
+an explicit rim (`--plate-edge`) and a soft halo, so the white reads as a
+deliberate plate rather than merging with the page in light mode or glaring off
+it in dark mode.
 
 Sections:
 
@@ -83,6 +89,9 @@ python3 -m http.server 8000     # then open http://localhost:8000
 The framework and bubble-plot figures were re-extracted from the manuscript PDF
 and composited onto white; the originals had their alpha channel flattened onto
 black, which left the panel titles and legends unreadable.
+
+Fig. 2 is coloured by tissue fate with marker shape per class; Fig. 4 uses the
+six-class palette from the Fig. 1 legend, matching the paper.
 
 The two t-SNE figures are interactive Plotly pages rather than the paper's PNGs,
 regenerated from the cohort feature tables with the same projection recipe as

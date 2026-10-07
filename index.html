@@ -17,6 +17,7 @@
     --accent:#0d7684; --accent-soft:#0d768414;
     --ink:#0f1113; --body:#2b3034; --muted:#697077;
     --rule:#e3e6e8; --hair:#eef0f2; --tint:#f6f8f8; --card:#fff; --bg:#fff;
+    --plate-edge:#dfe3e5; --plate-shadow:0 1px 3px rgba(16,24,32,.07);
     --measure:780px;
   }
   @media (prefers-color-scheme:dark){
@@ -24,6 +25,10 @@
       --accent:#5fc7cf; --accent-soft:#5fc7cf1f;
       --ink:#f2f4f5; --body:#c6cbcf; --muted:#8c949b;
       --rule:#2a2f34; --hair:#23272b; --tint:#15191c; --card:#fff; --bg:#101315;
+      /* the figures are drawn on white and contain medical imagery that must
+         not be inverted, so in dark mode they stay white plates and get a
+         soft rim instead, rather than glaring straight off the background */
+      --plate-edge:#3a4147; --plate-shadow:0 0 0 6px rgba(255,255,255,.04), 0 6px 18px rgba(0,0,0,.45);
     }
   }
   *{box-sizing:border-box;}
@@ -72,14 +77,16 @@
   /* figures */
   figure{margin:1.6rem 0 0;}
   figure img{display:block;width:100%;height:auto;background:var(--card);
-    border:1px solid var(--rule);border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+    border:1px solid var(--plate-edge);border-radius:4px;box-shadow:var(--plate-shadow);}
   figcaption{margin-top:.8rem;font-size:.86rem;line-height:1.6;color:var(--muted);}
   figcaption b{color:var(--ink);font-weight:600;}
   .wide{width:min(1080px,calc(100vw - 40px));margin-left:calc(50% - min(540px,(100vw - 40px)/2));}
-  .hero{max-width:1080px;margin:0 auto;padding:2.6rem 20px 0;}
+  .hero-band{background:var(--tint);border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);padding:2.8rem 0 2.4rem;}
+  .hero{max-width:1080px;margin:0 auto;padding:0 20px;}
   .hero figure{margin:0;}
-  .frame{border:1px solid var(--rule);border-radius:3px;background:var(--card);
-    box-shadow:0 1px 3px rgba(0,0,0,.05);overflow:hidden;}
+  .frame{border:1px solid var(--plate-edge);border-radius:4px;background:var(--card);
+    box-shadow:var(--plate-shadow);overflow:hidden;}
   .frame iframe{display:block;width:100%;border:0;}
   .ix{font-size:.78rem;color:var(--muted);margin:.5rem 0 0;}
   .ix b{color:var(--accent);font-weight:600;}
@@ -153,6 +160,7 @@
     </div>
   </header>
 
+  <div class="hero-band">
   <div class="hero">
     <figure>
       <img src="static/images/paper/fig1_framework.png?v=2"
@@ -164,8 +172,9 @@
       <i>b</i><sub>T2</sub> non-infarcted, <i>fi</i> final infarct.</figcaption>
     </figure>
   </div>
+  </div>
 
-  <section class="band tint abstract">
+  <section class="band abstract">
     <div class="wrap">
       <div class="sec-head"><span class="num">01</span><h2>Abstract</h2></div>
       <p>Acute ischemic stroke requires rapid treatment decisions that are strongly guided by emergency
@@ -191,7 +200,7 @@
     </div>
   </section>
 
-  <section class="band">
+  <section class="band tint">
     <div class="wrap">
       <div class="sec-head"><span class="num">02</span><h2>Method</h2></div>
       <p class="lede">Admission CTP (T<sub>1</sub>) is registered to follow-up DWI (T<sub>2</sub>), and
@@ -211,7 +220,7 @@
     </div>
   </section>
 
-  <section class="band tint">
+  <section class="band">
     <div class="wrap">
       <div class="sec-head"><span class="num">03</span><h2>Results</h2></div>
 
@@ -254,7 +263,9 @@
                 title="Interactive t-SNE of mJ-Net embeddings for each region-pair test"></iframe>
       </div>
       <figcaption style="margin-top:.8rem"><b>t-SNE of FE3 (mJ-Net) embeddings</b> for each region-pair
-      test on the SUH cohort. Each panel shows only the two classes being compared.</figcaption>
+      test on the SUH cohort. Each panel shows only the two classes being compared, in the six-class
+      palette of Fig. 1: salvaged penumbra mint, infarcted penumbra orange, salvaged core blue,
+      infarcted core red, contralateral healthy green, infarcted non-hypoperfused yellow.</figcaption>
 
       <figure class="wide">
         <img src="static/images/paper/fig3_bubble.png?v=2"
@@ -282,7 +293,7 @@
     </div>
   </section>
 
-  <section class="band">
+  <section class="band tint">
     <div class="wrap">
       <div class="sec-head"><span class="num">04</span><h2>BibTeX</h2></div>
 <pre>@inproceedings{rahman2026bitemporal,
