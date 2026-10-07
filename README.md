@@ -54,15 +54,18 @@ static/images/apple-touch-icon.png
 
 One column, no scripts, and no external CSS or JS beyond the two webfonts.
 Inter for text, Source Serif 4 for the display title, and a single teal accent
-(`#0d7684`) on section numbers, links, buttons and the table rules; everything
-else is greyscale. Full-width bands alternate white and `#f6f8f8` end to end,
-and a dark variant follows `prefers-color-scheme`.
+(`#0c6e7b`) on section numbers, links, buttons and the table rules; everything
+else is neutral grey.
 
-The figures are drawn on white and contain medical imagery that must not be
-inverted, so in dark mode they stay white plates. They sit on a tinted band with
-an explicit rim (`--plate-edge`) and a soft halo, so the white reads as a
-deliberate plate rather than merging with the page in light mode or glaring off
-it in dark mode.
+The page is **off-white** (`#f1f4f4`), with full-width bands alternating against
+a slightly deeper `#e6eaeb`. That is deliberate: the figures are drawn on white
+and contain medical imagery that must not be inverted, so an off-white page lets
+them read as white plates sitting on the page rather than bleeding into it. For
+the same reason there is no dark variant. Every text colour clears WCAG AA
+(4.5:1) against both band colours.
+
+Figures sit on a tinted band and carry an explicit rim (`--plate-edge`) and a
+soft shadow, so each one reads as a deliberate plate.
 
 Sections:
 
