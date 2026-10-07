@@ -13,80 +13,79 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
 <style>
-  /* The figures are drawn on white and contain medical imagery that must not be
-     inverted, so the page itself is off-white rather than white: the figures
-     then read as white plates sitting on the page instead of bleeding into it.
-     That is also why there is no dark variant. */
+  /* The figures are drawn on white and contain medical imagery that must not
+     be inverted, so there is no dark variant; each figure is given an explicit
+     rim so it still reads as a plate on the white page. */
   :root{
-    --accent:#0c6e7b; --accent-soft:#0c6e7b14;
-    --ink:#14181a; --body:#333a3e; --muted:#626a6f;
-    --bg:#f1f4f4;        /* page, off-white */
-    --tint:#e6eaeb;      /* the deeper alternating band */
+    --accent:#0c6e7b; --accent-soft:#0c6e7b12;
+    --ink:#14181a; --body:#343b3f; --muted:#646c71;
+    --bg:#fff;           /* page */
+    --tint:#f7f8f8;      /* the alternating band */
     --card:#fff;         /* figures, code block */
-    --rule:#d2d9db; --hair:#dfe5e6;
-    --plate-edge:#ccd4d6; --plate-shadow:0 1px 2px rgba(16,24,32,.07), 0 6px 18px rgba(16,24,32,.06);
-    --measure:780px;
+    --rule:#e2e6e8; --hair:#eef1f2;
+    --plate-edge:#dde2e4; --plate-shadow:0 1px 2px rgba(16,24,32,.06);
+    --measure:760px;
   }
   *{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
   body{margin:0;background:var(--bg);color:var(--body);
     font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    font-size:17px;line-height:1.72;}
+    font-size:16px;line-height:1.62;}
   a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;}
   a:hover{text-decoration-thickness:2px;}
 
-  .band{padding:4.2rem 0;}
+  .band{padding:2.9rem 0;}
   .band.tint{background:var(--tint);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
   .wrap{max-width:var(--measure);margin:0 auto;padding:0 20px;}
 
   /* header */
-  header.band{padding:5rem 0 2.6rem;text-align:center;}
-  .eyebrow{font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.19em;
-    color:var(--accent);margin:0 0 1.4rem;}
+  header.band{padding:3.4rem 0 1.9rem;text-align:center;}
+  .eyebrow{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;
+    color:var(--accent);margin:0 0 .9rem;}
   h1{font-family:"Source Serif 4",Georgia,serif;font-weight:600;
-    font-size:clamp(2.1rem,5.6vw,3.25rem);line-height:1.1;letter-spacing:-.018em;
-    color:var(--ink);margin:0 0 1.6rem;}
+    font-size:clamp(1.8rem,4.6vw,2.6rem);line-height:1.1;letter-spacing:-.018em;
+    color:var(--ink);margin:0 0 1.1rem;}
   .authors{margin:0 0 .4rem;font-size:1.04rem;font-weight:500;color:var(--ink);}
   .affil{margin:0;color:var(--muted);font-size:.93rem;}
-  .links{margin:2.1rem 0 0;display:flex;gap:.55rem;justify-content:center;flex-wrap:wrap;}
+  .links{margin:1.4rem 0 0;display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;}
   .links a,.links span{display:inline-flex;align-items:center;gap:.4rem;
-    padding:.52rem 1.2rem;border:1px solid var(--accent);border-radius:2px;
-    font-size:.92rem;font-weight:500;text-decoration:none;color:var(--accent);}
+    padding:.4rem .95rem;border:1px solid var(--accent);border-radius:2px;
+    font-size:.86rem;font-weight:500;text-decoration:none;color:var(--accent);}
   .links a:hover{background:var(--accent);color:#fff;}
   .links span{border-color:var(--rule);color:var(--muted);}
 
   /* section heads */
-  .sec-head{display:flex;align-items:baseline;gap:.85rem;margin:0 0 1.5rem;
-    padding-bottom:.75rem;border-bottom:1px solid var(--rule);
+  .sec-head{display:flex;align-items:baseline;gap:.7rem;margin:0 0 1rem;
+    padding-bottom:.5rem;border-bottom:1px solid var(--rule);
     box-shadow:0 1px 0 0 var(--accent);}
   .sec-head .num{font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--accent);
     font-variant-numeric:tabular-nums;}
   .sec-head h2{margin:0;font-family:"Source Serif 4",Georgia,serif;font-weight:600;
-    font-size:1.5rem;letter-spacing:-.01em;color:var(--ink);}
-  p{margin:0 0 1.1rem;}
+    font-size:1.3rem;letter-spacing:-.01em;color:var(--ink);}
+  p{margin:0 0 .8rem;}
   section p:last-child{margin-bottom:0;}
   .abstract p{text-align:justify;hyphens:auto;}
-  .lede{font-size:1.05rem;}
-  .sub-head{margin:2.6rem 0 .6rem;font-size:.76rem;font-weight:600;text-transform:uppercase;
+  .lede{font-size:1rem;}
+  .sub-head{margin:1.8rem 0 .45rem;font-size:.76rem;font-weight:600;text-transform:uppercase;
     letter-spacing:.14em;color:var(--muted);}
 
   /* figures */
-  figure{margin:1.6rem 0 0;}
+  figure{margin:1.3rem 0 0;}
   figure img{display:block;width:100%;height:auto;background:var(--card);
     border:1px solid var(--plate-edge);border-radius:4px;box-shadow:var(--plate-shadow);}
-  figcaption{margin-top:.8rem;font-size:.86rem;line-height:1.6;color:var(--muted);}
+  figcaption{margin-top:.6rem;font-size:.81rem;line-height:1.5;color:var(--muted);}
   figcaption b{color:var(--ink);font-weight:600;}
-  .wide{width:min(1080px,calc(100vw - 40px));margin-left:calc(50% - min(540px,(100vw - 40px)/2));}
+  .wide{width:min(1040px,calc(100vw - 40px));margin-left:calc(50% - min(520px,(100vw - 40px)/2));}
   .hero-band{background:var(--tint);border-top:1px solid var(--rule);
-    border-bottom:1px solid var(--rule);padding:2.8rem 0 2.4rem;}
-  .hero{max-width:1080px;margin:0 auto;padding:0 20px;}
+    border-bottom:1px solid var(--rule);padding:1.9rem 0 1.6rem;}
+  .hero{max-width:1040px;margin:0 auto;padding:0 20px;}
   .hero figure{margin:0;}
 
   /* tables */
-  .tw{overflow-x:auto;margin:1.4rem 0 .7rem;-webkit-overflow-scrolling:touch;}
-  table.res{border-collapse:collapse;width:100%;font-size:.85rem;
+  .tw{overflow-x:auto;margin:1rem 0 .5rem;-webkit-overflow-scrolling:touch;}
+  table.res{border-collapse:collapse;width:100%;font-size:.8rem;
     font-variant-numeric:tabular-nums;background:transparent;}
-  table.res th,table.res td{padding:.5rem .6rem;text-align:center;border-bottom:1px solid var(--hair);}
+  table.res th,table.res td{padding:.34rem .5rem;text-align:center;border-bottom:1px solid var(--hair);}
   table.res thead th{font-weight:600;color:var(--ink);font-size:.8rem;vertical-align:bottom;
     border-bottom:2px solid var(--accent);}
   table.res thead th:first-child,table.res tbody th{text-align:left;}
@@ -106,10 +105,10 @@
   .tnote{font-size:.82rem;color:var(--muted);margin:0;}
 
   /* ROI classes */
-  .classes{display:grid;grid-template-columns:1fr 1fr;gap:0 2.2rem;margin:1.6rem 0 0;
+  .classes{display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;margin:1.1rem 0 0;
     list-style:none;padding:0;}
-  .classes li{display:flex;align-items:baseline;gap:.7rem;padding:.7rem 0;
-    border-top:1px solid var(--hair);font-size:.91rem;}
+  .classes li{display:flex;align-items:baseline;gap:.6rem;padding:.45rem 0;
+    border-top:1px solid var(--hair);font-size:.86rem;}
   .classes .mk{flex:0 0 auto;width:9px;height:9px;border:1.5px solid var(--accent);border-radius:50%;}
   .classes .mk.fi{background:var(--accent);}
   .classes code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
@@ -119,7 +118,7 @@
   .legend .mk{display:inline-block;width:9px;height:9px;border:1.5px solid var(--accent);border-radius:50%;}
   .legend .mk.fi{background:var(--accent);}
 
-  pre{margin:0;padding:1.15rem 1.25rem;background:var(--card);border:1px solid var(--plate-edge);
+  pre{margin:0;padding:.9rem 1rem;background:var(--card);border:1px solid var(--plate-edge);
     border-radius:3px;overflow-x:auto;font-size:.81rem;line-height:1.62;
     font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--body);}
 
@@ -154,7 +153,7 @@
   <div class="hero-band">
   <div class="hero">
     <figure>
-      <img src="static/images/paper/fig1_framework.png?v=2"
+      <img src="static/images/paper/fig1_framework.png?v=4"
            alt="Framework overview: bi-temporal ROI construction from registered CTP and DWI, and the four feature extraction families.">
       <figcaption><b>Framework overview.</b> Top: bi-temporal ROI construction, intersecting registered
       admission CTP and follow-up DWI masks into six outcome-aware classes. Bottom: CTP feature
@@ -238,7 +237,7 @@
       automated rather than manual admission annotations.</p>
 
       <figure class="wide">
-        <img src="static/images/paper/fig2_tsne_all.png?v=3"
+        <img src="static/images/paper/fig2_tsne_all.png?v=4"
              alt="t-SNE projections of FE1-FE4 across all six bi-temporal ROI classes.">
         <figcaption><b>Feature spaces.</b> t-SNE projections of FE1&ndash;FE4 across all six
         bi-temporal ROI classes on the SUH cohort. Colors denote tissue fate and markers denote ROI
@@ -247,14 +246,14 @@
       </figure>
 
       <figure class="wide">
-        <img src="static/images/paper/fig4_tsne_mjnet.png?v=3"
+        <img src="static/images/paper/fig4_tsne_mjnet.png?v=4"
              alt="t-SNE projections of mJ-Net embeddings for each of the four region-pair tests.">
         <figcaption><b>Region-pair tests.</b> t-SNE projections of FE3 (mJ-Net) embeddings for each
         region-pair test on the SUH cohort. Colors denote the two ROI classes being compared.</figcaption>
       </figure>
 
       <figure class="wide">
-        <img src="static/images/paper/fig3_bubble.png?v=2"
+        <img src="static/images/paper/fig3_bubble.png?v=4"
              alt="Bubble plots of median baseline and GLCM feature values per bi-temporal ROI class.">
         <figcaption><b>Phenotypic gradient.</b> Median baseline (Std, Max, Skewness, Kurtosis) and GLCM
         (Imc1, Imc2, MCC, Correlation) feature values per bi-temporal ROI class on the SUH cohort, for

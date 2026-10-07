@@ -52,16 +52,15 @@ static/images/favicon.ico     fallback for browsers without SVG icons
 static/images/apple-touch-icon.png
 ```
 
-One column, no scripts, and no external CSS or JS beyond the two webfonts.
-Inter for text, Source Serif 4 for the display title, and a single teal accent
-(`#0c6e7b`) on section numbers, links, buttons and the table rules; everything
-else is neutral grey.
+One column, compact, no scripts, and no external CSS or JS beyond the two
+webfonts. Inter for text, Source Serif 4 for the display title, and a single
+teal accent (`#0c6e7b`) on section numbers, links, buttons and the table rules;
+everything else is neutral grey.
 
-The page is **off-white** (`#f1f4f4`), with full-width bands alternating against
-a slightly deeper `#e6eaeb`. That is deliberate: the figures are drawn on white
-and contain medical imagery that must not be inverted, so an off-white page lets
-them read as white plates sitting on the page rather than bleeding into it. For
-the same reason there is no dark variant. Every text colour clears WCAG AA
+The page is white, with full-width bands alternating against `#f7f8f8`. The
+figures are drawn on white and contain medical imagery that must not be
+inverted, so there is no dark variant; each figure carries an explicit rim
+(`--plate-edge`) so it still reads as a plate. Every text colour clears WCAG AA
 (4.5:1) against both band colours.
 
 Figures sit on a tinted band and carry an explicit rim (`--plate-edge`) and a
@@ -87,14 +86,23 @@ python3 -m http.server 8000     # then open http://localhost:8000
 
 ### Figures
 
-They were re-extracted from the manuscript PDF and composited onto white; the
-originals had their alpha channel flattened onto
+The sources are RGBA with transparent backgrounds and are composited onto
+white, then trimmed and downsized. Earlier copies had their alpha channel flattened onto
 black, which left the panel titles and legends unreadable.
 
-All four figures come from the manuscript PDF. The t-SNE panels were briefly
-replaced by regenerated interactive Plotly versions; those were reverted,
-because t-SNE is stochastic and a re-run does not reproduce the published
-projections.
+All four figures are the camera-ready versions, composited from the RGBA
+sources in `PhD works/BHI-2026/`:
+
+| Page figure | Source |
+|---|---|
+| Fig. 1 framework | `framework.png` |
+| Fig. 2 t-SNE, FE1–FE4 | `t-SNE_all_rebut.png` |
+| Fig. 3 bubble plots | `bubble_all_rebut.png` |
+| Fig. 4 t-SNE, Tests 1–4 | `stats_all_rebut.png` |
+
+The t-SNE panels were briefly replaced by regenerated interactive Plotly
+versions; those were reverted, because t-SNE is stochastic and a re-run does
+not reproduce the published projections.
 
 The `<img>` URLs carry a `?v=` version. Bump it whenever you replace a figure
 in place, otherwise browsers keep serving the copy they already cached.
