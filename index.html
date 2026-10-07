@@ -154,6 +154,7 @@
       <p class="links">
         <span>Paper (IEEE Xplore, soon)</span>
         <a href="https://github.com/yokko123/bi-temporal-ctp-dwi-code">Code</a>
+        <a href="https://doi.org/10.5281/zenodo.23209370">DOI</a>
       </p>
     </div>
   </header>
@@ -172,7 +173,8 @@
       <p>We propose a bi-temporal tissue phenotyping framework that links admission CTP signatures with
       follow-up DWI-defined tissue outcome using six outcome-aware region-of-interest classes. Admission
       tissue signatures are characterized using statistical, radiomic, and deep-learning features
-      extracted from mJ-Net and nnU-Net representations. On a local cohort, salvaged and infarcted
+      extracted from mJ-Net and nnU-Net representations. On a Stavanger University Hospital (SUH)
+      cohort, salvaged and infarcted
       penumbra showed consistent feature-space separation
       (&Delta;&#771;<sub>cos</sub>&nbsp;=&nbsp;0.146, <i>p</i>&nbsp;&lt;&nbsp;0.05), while core tissue
       showed minimal separation by subsequent fate. The largest separation was observed between
@@ -218,8 +220,9 @@
     <div class="wrap">
       <div class="sec-head"><span class="num">03</span><h2>Results</h2></div>
 
-      <p class="lede">Four region-pair comparisons were evaluated on the local cohort
-      (<i>n</i>&nbsp;=&nbsp;109) and on ISLES&rsquo;24 (<i>n</i>&nbsp;=&nbsp;149), using patient-level
+      <p class="lede">Four region-pair comparisons were evaluated on the Stavanger University
+      Hospital (SUH) cohort (<i>n</i>&nbsp;=&nbsp;109) and on ISLES&rsquo;24
+      (<i>n</i>&nbsp;=&nbsp;149), using patient-level
       representations. The separation index &Delta;&#771;<sub>cos</sub> is the median per-patient gap
       between within-class and between-class cosine similarity of the CNN embeddings; higher means
       better separated by final tissue state.</p>
@@ -229,7 +232,7 @@
           <thead>
             <tr>
               <th rowspan="2">Comparison</th>
-              <th class="grp" colspan="2">Local cohort</th>
+              <th class="grp" colspan="2">SUH</th>
               <th class="grp" colspan="2">ISLES&rsquo;24</th>
             </tr>
             <tr><th>mJ-Net</th><th>nnU-Net</th><th>mJ-Net</th><th>nnU-Net</th></tr>
@@ -270,7 +273,7 @@
         <img src="static/images/paper/fig2_tsne_all.png?v=2"
              alt="t-SNE projections of the four feature families across all six bi-temporal ROI classes.">
         <figcaption><b>Feature spaces.</b> t-SNE projections of FE1&ndash;FE4 across all six
-        bi-temporal ROI classes on the local cohort. Colors denote tissue fate and markers denote ROI
+        bi-temporal ROI classes on the SUH cohort. Colors denote tissue fate and markers denote ROI
         classes. Class organization is clearer in the CNN embedding spaces than in the handcrafted
         feature spaces.</figcaption>
       </figure>
@@ -279,7 +282,7 @@
         <img src="static/images/paper/fig4_tsne_mjnet.png?v=2"
              alt="t-SNE projections of mJ-Net embeddings for each of the four region-pair tests.">
         <figcaption><b>Region-pair tests.</b> t-SNE projections of FE3 (mJ-Net) embeddings for each
-        region-pair test on the local cohort. Colors denote the two ROI classes being
+        region-pair test on the SUH cohort. Colors denote the two ROI classes being
         compared.</figcaption>
       </figure>
 
@@ -287,7 +290,7 @@
         <img src="static/images/paper/fig3_bubble.png?v=2"
              alt="Bubble plots of median baseline and GLCM feature values per bi-temporal ROI class.">
         <figcaption><b>Phenotypic gradient.</b> Median baseline (Std, Max, Skewness, Kurtosis) and GLCM
-        (Imc1, Imc2, MCC, Correlation) feature values per bi-temporal ROI class on the local cohort,
+        (Imc1, Imc2, MCC, Correlation) feature values per bi-temporal ROI class on the SUH cohort,
         for LVO (filled, larger) and non-LVO (open, smaller) subgroups; bubble size encodes voxel
         count. A consistent gradient runs from healthy contralateral brain through salvaged penumbra to
         infarcted tissue.</figcaption>

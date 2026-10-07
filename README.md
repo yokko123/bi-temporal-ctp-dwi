@@ -6,7 +6,9 @@ Project page for
 > Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi
 > University of Stavanger · Stavanger University Hospital
 
+**Live page:** https://yokko123.github.io/bi-temporal-ctp-dwi/
 **Code:** https://github.com/yokko123/bi-temporal-ctp-dwi-code
+**Code DOI:** [10.5281/zenodo.23209370](https://doi.org/10.5281/zenodo.23209370)
 
 **Accepted at IEEE BHI 2026.** The paper is not yet on IEEE Xplore, so the
 Paper button is still a placeholder; see [Remaining steps](#remaining-steps).
@@ -56,7 +58,7 @@ section carries a number and a rule.
 
 Sections:
 
-- Title, authors, and the Paper / Code buttons
+- Title, authors, and the Paper / Code / DOI buttons
 - 01 — Abstract
 - 02 — Method, the six ROI classes and the framework figure (Fig. 1)
 - 03 — Results, the four region-pair comparisons plus Figs. 2–4
@@ -86,10 +88,14 @@ Done on acceptance: `robots` is now `index, follow`, the under-review notices
 and the private-preview footer are gone, and the BibTeX carries the camera-ready
 venue.
 
+Done since: the code repository is public and archived on Zenodo
+([10.5281/zenodo.23209370](https://doi.org/10.5281/zenodo.23209370), v1.0), and
+the page carries a DOI button.
+
 Still open:
 
-- **Make both repositories public** and enable GitHub Pages
-  (Settings → Pages → Source: `master` / root).
+- **This repository is still private**, although its Pages site is public. Make
+  it public too if you want the page source visible.
 - **When the paper appears on IEEE Xplore**, replace the
   `Paper (IEEE Xplore, soon)` placeholder in `index.html` with a live link, and
   add the `doi` plus page numbers to the BibTeX and to `CITATION.cff`, dropping
