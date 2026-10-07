@@ -8,6 +8,7 @@ Project page for
 
 **Live page:** https://yokko123.github.io/bi-temporal-ctp-dwi/
 **Code:** https://github.com/yokko123/bi-temporal-ctp-dwi-code
+**Model:** [yokko123/ctp-core-penumbra-nnunet](https://huggingface.co/yokko123/ctp-core-penumbra-nnunet)
 **Code DOI:** [10.5281/zenodo.23209370](https://doi.org/10.5281/zenodo.23209370)
 
 **Accepted at IEEE BHI 2026.** The paper is not yet on IEEE Xplore, so the
@@ -68,7 +69,7 @@ soft shadow, so each one reads as a deliberate plate.
 
 Sections:
 
-- Title, authors, and the Paper / Code / DOI buttons
+- Title, authors, and the Paper / Code / Model / DOI buttons
 - Framework figure as the hero
 - 01 — Abstract
 - 02 — Method, the six ROI classes
