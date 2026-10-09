@@ -48,11 +48,10 @@
   .authors{margin:0 0 .4rem;font-size:1.04rem;font-weight:500;color:var(--ink);}
   .affil{margin:0;color:var(--muted);font-size:.93rem;}
   .links{margin:1.4rem 0 0;display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;}
-  .links a,.links span{display:inline-flex;align-items:center;gap:.4rem;
+  .links a{display:inline-flex;align-items:center;gap:.4rem;
     padding:.4rem .95rem;border:1px solid var(--accent);border-radius:2px;
     font-size:.86rem;font-weight:500;text-decoration:none;color:var(--accent);}
   .links a:hover{background:var(--accent);color:#fff;}
-  .links span{border-color:var(--rule);color:var(--muted);}
 
   /* section heads */
   .sec-head{display:flex;align-items:baseline;gap:.7rem;margin:0 0 1rem;
@@ -127,7 +126,7 @@
     .band{padding:2.8rem 0;}
     header.band{padding:3.2rem 0 1.8rem;}
     .hero{padding-top:2rem;}
-    .links a,.links span{padding:.45rem .9rem;font-size:.86rem;}
+    .links a{padding:.45rem .9rem;font-size:.86rem;}
     .classes{grid-template-columns:1fr;}
     .sec-head{flex-direction:column;gap:.2rem;align-items:flex-start;}
     .wide{width:100%;margin-left:0;}
@@ -143,7 +142,7 @@
       <p class="authors">Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi</p>
       <p class="affil">University of Stavanger &middot; Stavanger University Hospital</p>
       <p class="links">
-        <span>Paper (IEEE Xplore, soon)</span>
+        <a href="https://arxiv.org/abs/2602.07535">Paper</a>
         <a href="https://github.com/yokko123/bi-temporal-ctp-dwi-code">Code</a>
         <a href="https://huggingface.co/yokko123/ctp-core-penumbra-nnunet"
            title="nnU-Net core/penumbra weights on Hugging Face">Model</a>
@@ -288,8 +287,11 @@
   author    = {Rahman, Md Sazidur and Engan, Kjersti and
                Kurz, Kathinka D{\ae}hli and Khanmohammadi, Mahdieh},
   booktitle = {2026 IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI)},
-  year      = {2026},
-  note      = {In press}
+  year         = {2026},
+  eprint       = {2602.07535},
+  archivePrefix= {arXiv},
+  primaryClass = {eess.IV},
+  note         = {In press}
 }</pre>
     </div>
   </section>
