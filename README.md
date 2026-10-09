@@ -1,18 +1,26 @@
-# Bi-temporal Image-driven Acute Stroke Evolution Analysis — project page
+<h1 align="center">Bi-temporal Image-driven<br>Acute Stroke Evolution Analysis</h1>
 
-Project page for
+<p align="center"><sub>Project page &nbsp;&middot;&nbsp; accepted at IEEE BHI 2026</sub></p>
 
-> **Bi-temporal Image-driven Acute Stroke Evolution Analysis**
-> Md Sazidur Rahman, Kjersti Engan, Kathinka Dæhli Kurz, Mahdieh Khanmohammadi
-> University of Stavanger · Stavanger University Hospital
+<p align="center">
+  <a href="https://yokko123.github.io/bi-temporal-ctp-dwi/"><img alt="Project page" src="https://img.shields.io/badge/project%20page-live-0c6e7b"></a>
+  <a href="https://arxiv.org/abs/2602.07535"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2602.07535-B31B1B?logo=arxiv&logoColor=white"></a>
+  <a href="https://github.com/yokko123/bi-temporal-ctp-dwi-code"><img alt="Code" src="https://img.shields.io/badge/code-GitHub-181717?logo=github"></a>
+  <a href="https://huggingface.co/yokko123/ctp-core-penumbra-nnunet"><img alt="Model on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-nnU--Net-FFD21E"></a>
+  <a href="https://doi.org/10.5281/zenodo.23209370"><img alt="DOI" src="https://zenodo.org/badge/1387177478.svg"></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-555555"></a>
+</p>
 
-**Live page:** https://yokko123.github.io/bi-temporal-ctp-dwi/
-**Code:** https://github.com/yokko123/bi-temporal-ctp-dwi-code
-**Model:** [yokko123/ctp-core-penumbra-nnunet](https://huggingface.co/yokko123/ctp-core-penumbra-nnunet)
-**Code DOI:** [10.5281/zenodo.23209370](https://doi.org/10.5281/zenodo.23209370)
+<p align="center">
+  <b>Md Sazidur Rahman</b> &nbsp;&middot;&nbsp;
+  <b>Kjersti Engan</b> &nbsp;&middot;&nbsp;
+  <b>Kathinka D&aelig;hli Kurz</b> &nbsp;&middot;&nbsp;
+  <b>Mahdieh Khanmohammadi</b>
+</p>
 
-**Accepted at IEEE BHI 2026.** The paper is not yet on IEEE Xplore, so the
-Paper button is still a placeholder; see [Remaining steps](#remaining-steps).
+<p align="center">
+  <sub>University of Stavanger &nbsp;&middot;&nbsp; Stavanger University Hospital</sub>
+</p>
 
 ## What the paper does
 
@@ -110,22 +118,17 @@ in place, otherwise browsers keep serving the copy they already cached.
 
 ## Remaining steps
 
-Done on acceptance: `robots` is now `index, follow`, the under-review notices
-and the private-preview footer are gone, and the BibTeX carries the camera-ready
-venue.
-
-Done since: the code repository is public and archived on Zenodo
-([10.5281/zenodo.23209370](https://doi.org/10.5281/zenodo.23209370), v1.0), and
-the page carries a DOI button.
+Done: `robots` is `index, follow`, the under-review notices and the
+private-preview footer are gone, the BibTeX carries the camera-ready venue, the
+preprint is on [arXiv:2602.07535](https://arxiv.org/abs/2602.07535), the code is
+public and archived on Zenodo, and the nnU-Net weights are on the Hugging Face
+Hub. The header buttons are Paper / Code / Model / DOI.
 
 Still open:
 
-- **This repository is still private**, although its Pages site is public. Make
-  it public too if you want the page source visible.
-- **When the paper appears on IEEE Xplore**, replace the
-  `Paper (IEEE Xplore, soon)` placeholder in `index.html` with a live link, and
-  add the `doi` plus page numbers to the BibTeX and to `CITATION.cff`, dropping
-  `note = {In press}` / `notes: In press`.
+- **When the paper appears on IEEE Xplore**, add the `doi` and page numbers to
+  the BibTeX and to `CITATION.cff`, and drop `note = {In press}` /
+  `notes: In press`.
 - **Check the venue string** against the camera-ready instructions. The BibTeX
   uses `2026 IEEE-EMBS International Conference on Biomedical and Health
   Informatics (BHI)`.
