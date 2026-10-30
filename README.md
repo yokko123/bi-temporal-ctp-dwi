@@ -7,6 +7,7 @@
   <a href="https://arxiv.org/abs/2602.07535"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2602.07535-B31B1B?logo=arxiv&logoColor=white"></a>
   <a href="https://github.com/yokko123/bi-temporal-ctp-dwi-code"><img alt="Code" src="https://img.shields.io/badge/code-GitHub-181717?logo=github"></a>
   <a href="https://huggingface.co/yokko123/ctp-core-penumbra-nnunet"><img alt="Model on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-nnU--Net-FFD21E"></a>
+  <a href="https://huggingface.co/spaces/yokko123/ctp-core-penumbra-demo"><img alt="Live demo" src="https://img.shields.io/badge/%F0%9F%A4%97%20demo-live-FFD21E"></a>
   <a href="https://doi.org/10.5281/zenodo.23209370"><img alt="DOI" src="https://zenodo.org/badge/1387177478.svg"></a>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-555555"></a>
 </p>
@@ -121,8 +122,8 @@ in place, otherwise browsers keep serving the copy they already cached.
 Done: `robots` is `index, follow`, the under-review notices and the
 private-preview footer are gone, the BibTeX carries the camera-ready venue, the
 preprint is on [arXiv:2602.07535](https://arxiv.org/abs/2602.07535), the code is
-public and archived on Zenodo, and the nnU-Net weights are on the Hugging Face
-Hub. The header buttons are Paper / Code / Model / DOI.
+public and archived on Zenodo, the nnU-Net weights are on the Hugging Face
+Hub, and the pipeline runs end to end in a [ZeroGPU Space](https://huggingface.co/spaces/yokko123/ctp-core-penumbra-demo). The header buttons are Paper / Code / Model / Demo / DOI.
 
 Still open:
 
