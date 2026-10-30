@@ -7,6 +7,7 @@
   <a href="https://arxiv.org/abs/2602.07535"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2602.07535-B31B1B?logo=arxiv&logoColor=white"></a>
   <a href="https://github.com/yokko123/bi-temporal-ctp-dwi-code"><img alt="Code" src="https://img.shields.io/badge/code-GitHub-181717?logo=github"></a>
   <a href="https://huggingface.co/yokko123/ctp-core-penumbra-nnunet"><img alt="Model on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-nnU--Net-FFD21E"></a>
+  <a href="https://huggingface.co/yokko123/ctp-core-penumbra-mjnet"><img alt="mJ-Net weights on Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20weights-mJ--Net-FFD21E"></a>
   <a href="https://huggingface.co/spaces/yokko123/ctp-core-penumbra-demo"><img alt="Live demo" src="https://img.shields.io/badge/%F0%9F%A4%97%20demo-live-FFD21E"></a>
   <a href="https://doi.org/10.5281/zenodo.23209370"><img alt="DOI" src="https://zenodo.org/badge/1387177478.svg"></a>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-555555"></a>
@@ -53,6 +54,14 @@ The same pattern holds on ISLES'24.
 
 Page only. The preprocessing, feature-extraction and analysis code lives in
 [bi-temporal-ctp-dwi-code](https://github.com/yokko123/bi-temporal-ctp-dwi-code).
+
+Both released models are on the Hugging Face Hub:
+[**ctp-core-penumbra-nnunet**](https://huggingface.co/yokko123/ctp-core-penumbra-nnunet)
+is FE4, the 3D segmenter, and
+[**ctp-core-penumbra-mjnet**](https://huggingface.co/yokko123/ctp-core-penumbra-mjnet)
+is FE3, released as a feature extractor rather than a segmenter. The
+[demo Space](https://huggingface.co/spaces/yokko123/ctp-core-penumbra-demo)
+runs FE4 end to end on an ISLES'24 case.
 
 ```
 index.html                    the whole page; styles are inlined
